@@ -15,12 +15,14 @@ out
 
 # gradle
 build
-.gradle
+#.gradle
+
+.vs
 
 # other
-eclipse
-run
-runs
-run-data
+#eclipse
+#run
+#runs
+#run-data
 
 repo
