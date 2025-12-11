@@ -2,6 +2,7 @@ package com.allthecolonists.core.blocks.huts;
 
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -9,6 +10,11 @@ import org.jetbrains.annotations.NotNull;
  */
 public class BlockHutMekanism extends AbstractBlockHut<BlockHutMekanism>
 {
+    public BlockHutMekanism(final BlockBehaviour.Properties properties)
+    {
+        super(properties);
+    }
+
     @NotNull
     @Override
     public String getHutName()
