@@ -1,4 +1,4 @@
-package com.allthecolonists;
+package com.allthecolonists.core.config;
 
 import java.util.List;
 import java.util.Set;

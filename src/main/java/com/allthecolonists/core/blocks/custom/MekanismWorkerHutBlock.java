@@ -1,4 +1,4 @@
-package com.allthecolonists.block.custom;
+package com.allthecolonists.core.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Direction;
