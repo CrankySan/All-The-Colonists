@@ -9,7 +9,7 @@
     "trim": "block/cauldron_side",
     "metal": "block/iron_block",
     "redstone": "block/redstone_block",
-    "infuser": "mekanism:block/metallurgic_infuser",
+    "infuser": "mekanism:block/metallurgic_infuser_side",
     "book": "block/bookshelf",
     "lever": "block/lever"
   },
@@ -57,6 +57,19 @@
         "north": {"uv": [1, 0, 15, 16], "texture": "#wood"},
         "south": {"uv": [1, 0, 15, 16], "texture": "#wood"},
         "down": {"uv": [0, 15, 16, 16], "texture": "#wood"}
+      }
+    },
+    {
+      "name": "base_floor",
+      "from": [1, 0, 1],
+      "to": [15, 1, 15],
+      "faces": {
+        "north": {"uv": [1, 15, 15, 16], "texture": "#wood"},
+        "east": {"uv": [1, 15, 15, 16], "texture": "#wood"},
+        "south": {"uv": [1, 15, 15, 16], "texture": "#wood"},
+        "west": {"uv": [1, 15, 15, 16], "texture": "#wood"},
+        "up": {"uv": [1, 1, 15, 15], "texture": "#wood"},
+        "down": {"uv": [1, 1, 15, 15], "texture": "#wood"}
       }
     },
     {
