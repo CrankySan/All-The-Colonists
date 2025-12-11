@@ -2,5 +2,7 @@
   "itemGroup.AllTheColonists": "All The Colonists",
   "block.allthecolonists.blockhutmekanism": "Mekanism Worker Hut",
   "item.allthecolonists.blockhutmekanism": "Mekanism Worker Hut",
+  "block.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
+  "item.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
   "item.allthecolonists.example_item": "Example Item"
 }

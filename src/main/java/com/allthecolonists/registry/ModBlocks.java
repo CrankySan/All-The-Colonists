@@ -32,6 +32,10 @@ public class ModBlocks {
     public static final DeferredItem<BlockItem> BLOCKHUTMEKANISM_ITEM =
             ITEMS.registerSimpleBlockItem("blockhutmekanism", BLOCKHUTMEKANISM);
 
+    // Compatibility alias for the Mekanism Worker Hut item ID used in some existing data
+    public static final DeferredItem<BlockItem> MEKANISM_WORKER_HUT_ITEM =
+            ITEMS.registerSimpleBlockItem("mekanism_worker_hut", BLOCKHUTMEKANISM);
+
     // Registrierung
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
