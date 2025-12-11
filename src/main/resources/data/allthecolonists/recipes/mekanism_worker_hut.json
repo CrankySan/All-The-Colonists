@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "pattern": [
     "PBP",
     "PMP",
@@ -7,7 +8,7 @@
   ],
   "key": {
     "P": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     },
     "B": {
       "item": "structurize:sceptergold"
@@ -17,6 +18,7 @@
     }
   },
   "result": {
-    "item": "allthecolonists:mekanism_worker_hut"
+    "id": "allthecolonists:mekanism_worker_hut",
+    "count": 1
   }
 }
