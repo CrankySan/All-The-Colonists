@@ -21,16 +21,16 @@ public class ModBlocks {
             DeferredRegister.createItems(AllTheColonists.MODID);
 
     // Mekanism Worker Hut Block
-    public static final DeferredBlock<MekanismWorkerHutBlock> MEKANISM_WORKER_HUT =
+    public static final DeferredBlock<MekanismWorkerHutBlock> BLOCKHUTMEKANISM =
             BLOCKS.register(
-                    "mekanism_worker_hut",
+                    "blockhutmekanism",
                     () -> new MekanismWorkerHutBlock(
                             BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
                     )
             );
 
-    public static final DeferredItem<BlockItem> MEKANISM_WORKER_HUT_ITEM =
-            ITEMS.registerSimpleBlockItem("mekanism_worker_hut", MEKANISM_WORKER_HUT);
+    public static final DeferredItem<BlockItem> BLOCKHUTMEKANISM_ITEM =
+            ITEMS.registerSimpleBlockItem("blockhutmekanism", BLOCKHUTMEKANISM);
 
     // Registrierung
     public static void register(IEventBus bus) {
