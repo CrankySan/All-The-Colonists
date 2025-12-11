@@ -19,17 +19,8 @@
   "allthecolonists.config.pathfinding.comment": "All configurations related to pathfinding",
   "allthecolonists.config.commands": "Command Settings",
   "allthecolonists.config.commands.comment": "All configurations related to the All The Colonists commands",
-
   "com.allthecolonists.command.notenabledinconfig": "This command is disabled in the config.",
 
   "block.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
-  "block.allthecolonists.mekanism_hut": "Mekanism Hut",
-
-  "allthecolonists.configuration.title": "All The Colonists Config",
-  "allthecolonists.configuration.section.allthecolonists.common.toml": "Common Settings",
-  "allthecolonists.configuration.section.allthecolonists.common.toml.title": "Common Settings",
-  "allthecolonists.configuration.items": "Item List",
-  "allthecolonists.configuration.logDirtBlock": "Log Dirt Block",
-  "allthecolonists.configuration.magicNumberIntroduction": "Magic Number Text",
-  "allthecolonists.configuration.magicNumber": "Magic Number"
+  "block.allthecolonists.mekanism_hut": "Mekanism Hut"
 }

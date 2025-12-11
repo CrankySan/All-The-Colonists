@@ -10,19 +10,16 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.material.MapColor;
 
 public class MekanismWorkerHutBlock extends HorizontalDirectionalBlock {
 
-    public static final MapCodec<MekanismWorkerHutBlock> CODEC =
-            simpleCodec(props -> new MekanismWorkerHutBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL)));
+    public static final MapCodec<MekanismWorkerHutBlock> CODEC = simpleCodec(MekanismWorkerHutBlock::new);
 
     public MekanismWorkerHutBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    // NeoForge Codec Support
     @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
