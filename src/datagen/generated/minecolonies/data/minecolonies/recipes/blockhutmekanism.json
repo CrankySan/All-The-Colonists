@@ -1,15 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "III",
-    "IMI",
-    "III"
-  ],
+  "category": "misc",
   "key": {
-    "I": { "item": "minecraft:iron_ingot" },
-    "M": { "item": "mekanism:metallurgic_infuser" }
+    "B": {
+      "item": "minecraft:redstone_block"
+    },
+    "T": {
+      "item": "structurize:sceptergold"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
   },
+  "pattern": [
+    "XTX",
+    "XBX",
+    "XXX"
+  ],
   "result": {
     "item": "allthecolonists:blockhutmekanism"
-  }
+  },
+  "show_notification": true
 }
