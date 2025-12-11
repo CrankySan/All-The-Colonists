@@ -44,7 +44,6 @@ public class AllTheColonists {
                     .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM.get());
-                        output.accept(ModItems.VOID_ICON.get());
                     })
                     .build()
             );
