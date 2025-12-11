@@ -15,7 +15,7 @@ out
 
 gradle
 build
-.gradle
+.gradle/
 
 .vs
 
@@ -24,6 +24,3 @@ build
 #run
 #runs
 #run-data
-
-repo
-.gradle/9.2.0/
