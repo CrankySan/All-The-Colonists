@@ -1,0 +1,14 @@
+{
+  "icon": "void.png",
+  "name": "Void",
+  "authors": [
+    "Cranky5"
+  ],
+  "desc": "Ein Void-Stylepack für MineColonies.",
+  "mods": [
+    "structurize",
+    "minecolonies"
+  ],
+  "version": "1",
+  "pack-format": "1"
+}
