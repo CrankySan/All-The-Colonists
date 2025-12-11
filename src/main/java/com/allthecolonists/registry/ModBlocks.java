@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,7 +21,7 @@ public class ModBlocks {
             DeferredRegister.createItems(AllTheColonists.MODID);
 
     // Mekanism Worker Hut Block
-    public static final DeferredBlock<Block> MEKANISM_WORKER_HUT =
+    public static final DeferredBlock<MekanismWorkerHutBlock> MEKANISM_WORKER_HUT =
             BLOCKS.register(
                     "mekanism_worker_hut",
                     () -> new MekanismWorkerHutBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL))
