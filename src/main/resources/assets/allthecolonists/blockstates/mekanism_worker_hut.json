@@ -1,20 +1,8 @@
 {
   "variants": {
-    "facing=east": {
-      "model": "allthecolonists:block/mekanism_worker_hut",
-      "y": 90
-    },
-    "facing=south": {
-      "model": "allthecolonists:block/mekanism_worker_hut",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "allthecolonists:block/mekanism_worker_hut",
-      "y": 270
-    },
-    "facing=north": {
-      "model": "allthecolonists:block/mekanism_worker_hut",
-      "y": 0
-    }
+    "facing=north": { "model": "allthecolonists:block/mekanism_worker_hut", "y": 180 },
+    "facing=east":  { "model": "allthecolonists:block/mekanism_worker_hut", "y": 270 },
+    "facing=south": { "model": "allthecolonists:block/mekanism_worker_hut" },
+    "facing=west":  { "model": "allthecolonists:block/mekanism_worker_hut", "y": 90 }
   }
 }
