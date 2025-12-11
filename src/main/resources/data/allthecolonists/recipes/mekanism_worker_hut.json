@@ -1,22 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "pattern": [
-    "PBP",
+    "PTP",
     "PMP",
     "PPP"
   ],
   "key": {
     "P": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     },
-    "B": {
-      "item": "structurize:sceptergold"
+    "T": {
+      "item": "minecraft:torch"
     },
     "M": {
       "item": "mekanism:metallurgic_infuser"
     }
   },
   "result": {
-    "item": "allthecolonists:mekanism_worker_hut"
+    "id": "allthecolonists:mekanism_worker_hut",
+    "count": 1
   }
 }

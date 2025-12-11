@@ -1,4 +1,4 @@
-package com.crankgpt.allthecolonists;
+package com.allthecolonists;
 
 import java.util.List;
 import java.util.Set;
