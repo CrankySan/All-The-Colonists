@@ -3,6 +3,7 @@ package com.allthecolonists.core;
 import org.slf4j.Logger;
 
 import com.allthecolonists.core.registry.ModBlocks;
+import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;
@@ -32,10 +33,6 @@ public class AllTheColonists {
     public static final String MODID = "allthecolonists";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // -------- ITEM REGISTER --------
-    public static final DeferredRegister.Items ITEMS =
-            DeferredRegister.createItems(MODID);
-
     // -------- CREATIVE TAB REGISTER --------
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
@@ -44,9 +41,10 @@ public class AllTheColonists {
             CREATIVE_MODE_TABS.register("colonists_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.AllTheColonists"))
                     .withTabsBefore(CreativeModeTabs.COMBAT)
-                    .icon(() -> ModBlocks.BLOCKHUTMEKANISM_ITEM.get().getDefaultInstance())
+                    .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM.get());
+                        output.accept(ModItems.VOID_ICON.get());
                     })
                     .build()
             );
@@ -57,7 +55,7 @@ public class AllTheColonists {
         ModBlocks.register(modEventBus);
 
         // Items registrieren
-        ITEMS.register(modEventBus);
+        ModItems.register(modEventBus);
 
         // Creative Tabs registrieren
         CREATIVE_MODE_TABS.register(modEventBus);
