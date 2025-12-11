@@ -11,10 +11,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "allthecolonists:blockhutmekanism"
+          "functions": [
+            {
+              "function": "minecraft:copy_name",
+              "source": "block_entity"
+            }
+          ],
+          "name": "minecolonies:blockhutmekanism"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "allthecolonists:blocks/blockhutmekanism"
 }
