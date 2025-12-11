@@ -11,6 +11,6 @@
     "C": { "item": "minecraft:crafting_table" }
   },
   "result": {
-    "item": "allthecolonists:mekanism_worker_hut"
+    "item": "allthecolonists:blockhutmekanism"
   }
 }

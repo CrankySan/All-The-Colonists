@@ -52,7 +52,7 @@ public class AllTheColonists {
                     .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(EXAMPLE_ITEM.get());
-                        output.accept(ModBlocks.MEKANISM_WORKER_HUT_ITEM.get());
+                        output.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM.get());
                     })
                     .build()
             );
@@ -83,7 +83,7 @@ public class AllTheColonists {
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.MEKANISM_WORKER_HUT_ITEM);
+            event.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM);
         }
     }
 

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "allthecolonists:mekanism_worker_hut"
+          "name": "allthecolonists:blockhutmekanism"
         }
       ],
       "rolls": 1.0
