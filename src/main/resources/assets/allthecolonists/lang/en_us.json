@@ -1,6 +1,27 @@
 {
   "itemGroup.allthecolonists": "All The Colonists",
 
+  "key.allthecolonists.categories.general": "All The Colonists",
+  "key.allthecolonists.toggle_goggles": "Toggle Goggles Preview",
+
+  "com.allthecolonists.configgui.title": "All The Colonists Config",
+  "allthecolonists.config.gameplay": "Gameplay Settings",
+  "allthecolonists.config.gameplay.comment": "All configuration items related to the core gameplay",
+  "allthecolonists.config.claims": "Claim Settings",
+  "allthecolonists.config.claims.comment": "All configuration related to colony claims",
+  "allthecolonists.config.combat": "Combat Settings",
+  "allthecolonists.config.combat.comment": "All configuration items related to the combat elements of All The Colonists",
+  "allthecolonists.config.permissions": "Permission Settings",
+  "allthecolonists.config.permissions.comment": "All permission configuration options",
+  "allthecolonists.config.compatibility": "Mod Compatibility Settings",
+  "allthecolonists.config.compatibility.comment": "All configuration related to mod compatibility",
+  "allthecolonists.config.pathfinding": "Pathfinding Settings",
+  "allthecolonists.config.pathfinding.comment": "All configurations related to pathfinding",
+  "allthecolonists.config.commands": "Command Settings",
+  "allthecolonists.config.commands.comment": "All configurations related to the All The Colonists commands",
+
+  "com.allthecolonists.command.notenabledinconfig": "This command is disabled in the config.",
+
   "block.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
   "block.allthecolonists.mekanism_hut": "Mekanism Hut",
 
