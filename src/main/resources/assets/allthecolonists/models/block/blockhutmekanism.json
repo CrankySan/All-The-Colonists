@@ -9,7 +9,8 @@
     "trim": "block/cauldron_side",
     "metal": "block/iron_block",
     "redstone": "block/redstone_block",
-    "book": "minecolonies:block/books/booktexture_red",
+    "infuser": "mekanism:block/metallurgic_infuser",
+    "book": "block/bookshelf",
     "lever": "block/lever"
   },
   "elements": [
@@ -6090,9 +6091,9 @@
       "to": [4, 12, 12],
       "rotation": {"angle": 0, "axis": "y", "origin": [10, 17, 19]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "east": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6101,9 +6102,9 @@
       "to": [7, 12, 15],
       "rotation": {"angle": 0, "axis": "y", "origin": [13, 17, 22]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "east": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6112,9 +6113,9 @@
       "to": [4, 15, 15],
       "rotation": {"angle": 0, "axis": "y", "origin": [10, 20, 22]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "east": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6123,9 +6124,9 @@
       "to": [13.5, 12, 15],
       "rotation": {"angle": 0, "axis": "y", "origin": [19.5, 17, 22]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "west": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6134,9 +6135,9 @@
       "to": [14.5, 12, 12],
       "rotation": {"angle": 0, "axis": "y", "origin": [20.5, 17, 19]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "west": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6145,9 +6146,9 @@
       "to": [15, 12, 9],
       "rotation": {"angle": 0, "axis": "y", "origin": [21, 17, 16]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "west": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6156,9 +6157,9 @@
       "to": [15, 12, 6],
       "rotation": {"angle": 0, "axis": "y", "origin": [21, 17, 13]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "west": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6167,9 +6168,9 @@
       "to": [15, 15, 15],
       "rotation": {"angle": 0, "axis": "y", "origin": [21, 20, 22]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "west": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
@@ -6178,9 +6179,9 @@
       "to": [15, 15, 12],
       "rotation": {"angle": 0, "axis": "y", "origin": [21, 20, 19]},
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "west": {"uv": [0, 0, 16, 16], "texture": "#redstone"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#redstone"}
+        "north": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#infuser"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#infuser"}
       }
     },
     {
