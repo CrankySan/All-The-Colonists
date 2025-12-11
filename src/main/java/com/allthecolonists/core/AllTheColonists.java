@@ -1,8 +1,8 @@
-package com.allthecolonists;
+package com.allthecolonists.core;
 
 import org.slf4j.Logger;
 
-import com.allthecolonists.registry.ModBlocks;
+import com.allthecolonists.core.registry.ModBlocks;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;

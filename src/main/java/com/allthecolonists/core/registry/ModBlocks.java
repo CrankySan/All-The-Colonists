@@ -1,7 +1,7 @@
-package com.allthecolonists.registry;
+package com.allthecolonists.core.registry;
 
-import com.allthecolonists.AllTheColonists;
-import com.allthecolonists.block.custom.MekanismWorkerHutBlock;
+import com.allthecolonists.core.AllTheColonists;
+import com.allthecolonists.core.blocks.custom.MekanismWorkerHutBlock;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.state.BlockBehaviour;
