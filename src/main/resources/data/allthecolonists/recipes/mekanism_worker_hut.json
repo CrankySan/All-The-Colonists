@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PBP",
+    "PMP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:oak_planks"
+    },
+    "B": {
+      "item": "minecolonies:build_tool"
+    },
+    "M": {
+      "item": "mekanism:metallurgic_infuser"
+    }
+  },
+  "result": {
+    "item": "allthecolonists:mekanism_worker_hut"
+  }
+}
