@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "III",
-    "IRI",
+    "IMI",
     "III"
   ],
   "key": {
     "I": { "item": "minecraft:iron_ingot" },
-    "R": { "item": "minecraft:redstone_block" }
+    "M": { "item": "mekanism:metallurgic_infuser" }
   },
   "result": {
     "item": "allthecolonists:blockhutmekanism"
