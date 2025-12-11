@@ -1,7 +1,7 @@
 package com.allthecolonists.registry;
 
 import com.allthecolonists.AllTheColonists;
-import com.crankgpt.allthecolonists.block.custom.MekanismWorkerHutBlock;
+import com.allthecolonists.block.custom.MekanismWorkerHutBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 

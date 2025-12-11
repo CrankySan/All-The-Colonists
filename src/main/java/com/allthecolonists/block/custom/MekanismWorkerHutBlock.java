@@ -1,4 +1,4 @@
-package com.crankgpt.allthecolonists.block.custom;
+package com.allthecolonists.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Direction;
