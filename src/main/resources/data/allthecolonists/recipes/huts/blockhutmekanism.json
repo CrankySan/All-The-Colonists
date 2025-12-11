@@ -1,15 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
+    "III",
     "IRI",
-    "PCP",
-    "IPI"
+    "III"
   ],
   "key": {
     "I": { "item": "minecraft:iron_ingot" },
-    "P": { "tag": "minecraft:planks" },
-    "R": { "item": "minecraft:redstone_block" },
-    "C": { "item": "minecraft:crafting_table" }
+    "R": { "item": "minecraft:redstone_block" }
   },
   "result": {
     "item": "allthecolonists:blockhutmekanism"

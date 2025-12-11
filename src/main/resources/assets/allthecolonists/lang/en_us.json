@@ -1,8 +1,8 @@
 {
   "itemGroup.AllTheColonists": "All The Colonists",
-  "block.allthecolonists.blockhutmekanism": "Mekanism Worker Hut",
-  "item.allthecolonists.blockhutmekanism": "Mekanism Worker Hut",
-  "block.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
-  "item.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
+  "block.allthecolonists.blockhutmekanism": "Mekanism Hut",
+  "item.allthecolonists.blockhutmekanism": "Mekanism Hut",
+  "block.allthecolonists.mekanism_worker_hut": "Mekanism Hut",
+  "item.allthecolonists.mekanism_worker_hut": "Mekanism Hut",
   "item.allthecolonists.example_item": "Example Item"
 }
