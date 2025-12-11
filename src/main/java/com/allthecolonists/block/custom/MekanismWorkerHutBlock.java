@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
 public class MekanismWorkerHutBlock extends HorizontalDirectionalBlock {
+
     public static final MapCodec<MekanismWorkerHutBlock> CODEC = simpleCodec(MekanismWorkerHutBlock::new);
 
     public MekanismWorkerHutBlock(BlockBehaviour.Properties properties) {
