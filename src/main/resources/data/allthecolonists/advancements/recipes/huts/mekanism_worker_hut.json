@@ -34,7 +34,7 @@
   ],
   "rewards": {
     "recipes": [
-      "allthecolonists:mekanism_worker_hut"
+      "allthecolonists:huts/mekanism_worker_hut"
     ]
   }
 }
