@@ -1,5 +1,11 @@
 {
   "itemGroup.AllTheColonists": "All The Colonists",
   "block.allthecolonists.blockhutmekanism": "Mekanism Hut",
-  "item.allthecolonists.blockhutmekanism": "Mekanism Hut"
+  "block.allthecolonists.blockhutmechanic.name": "Mechanic's Hut",
+  "item.allthecolonists.blockhutmekanism": "Mekanism Hut",
+  "com.allthecolonists.coremod.jei.mekanist": "Crafts Mekanism Alloy's and Circuits",
+  "com.allthecolonists.building.mekanist.desc": "Crafts Alloy's and Circuits and handles unique recipes",
+  "com.allthecolonists.coremod.job.mekanist": "Mekanist",
+  "com.allthecolonists.job.mekanist": "Mekanist",
+  "com.minecolonies.building.mekanist": "Mekanism Hut"
 }
