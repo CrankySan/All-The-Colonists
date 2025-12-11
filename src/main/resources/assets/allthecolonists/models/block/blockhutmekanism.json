@@ -9,24 +9,10 @@
     "trim": "block/cauldron_side",
     "metal": "block/iron_block",
     "redstone": "block/redstone_block",
-    "infuser": "mekanism:block/models/metallurgic_infuser",
-    "book": "block/bookshelf",
+    "infuser": "block/light_gray_shulker_box",
     "lever": "block/lever"
   },
   "elements": [
-    {
-      "name": "spine",
-      "from": [5.348, 16.11, 4.37],
-      "to": [8.748, 17.11, 9.37],
-      "rotation": {"angle": 0, "axis": "y", "origin": [4.5, 7.75, 10.25]},
-      "faces": {
-        "north": {"uv": [0, 0, 8, 2], "texture": "#book"},
-        "east": {"uv": [0, 2, 16, 4], "texture": "#book"},
-        "south": {"uv": [0, 0, 8, 2], "rotation": 180, "texture": "#book"},
-        "west": {"uv": [1, 0, 8, 2], "texture": "#book"},
-        "up": {"uv": [8, 4, 16, 16], "texture": "#book"}
-      }
-    },
     {
       "name": "base1",
       "from": [15, 0, 1],
