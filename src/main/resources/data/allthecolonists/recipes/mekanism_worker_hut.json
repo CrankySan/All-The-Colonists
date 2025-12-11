@@ -10,7 +10,7 @@
       "item": "minecraft:oak_planks"
     },
     "B": {
-      "item": "minecolonies:build_tool"
+      "item": "structurize:build_tool"
     },
     "M": {
       "item": "mekanism:metallurgic_infuser"
