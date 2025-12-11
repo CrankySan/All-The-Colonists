@@ -9,7 +9,7 @@
     "trim": "block/cauldron_side",
     "metal": "block/iron_block",
     "redstone": "block/redstone_block",
-    "infuser": "mekanism:block/metallurgic_infuser_side",
+    "infuser": "mekanism:block/models/metallurgic_infuser",
     "book": "block/bookshelf",
     "lever": "block/lever"
   },
