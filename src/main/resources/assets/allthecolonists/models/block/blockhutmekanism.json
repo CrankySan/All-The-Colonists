@@ -2,9 +2,9 @@
   "credit": "Made with Blockbench",
   "parent": "minecraft:block/cross",
   "textures": {
-    "particle": "block/stripped_spruce_log",
-    "wood": "block/stripped_spruce_log",
-    "wood2": "block/stripped_oak_log",
+    "particle": "block/black_concrete",
+    "wood": "block/black_concrete",
+    "wood2": "block/gray_concrete",
     "stone": "block/cobblestone",
     "trim": "block/cauldron_side",
     "metal": "block/iron_block",
@@ -70,6 +70,19 @@
         "west": {"uv": [1, 15, 15, 16], "texture": "#wood"},
         "up": {"uv": [1, 1, 15, 15], "texture": "#wood"},
         "down": {"uv": [1, 1, 15, 15], "texture": "#wood"}
+      }
+    },
+    {
+      "name": "base_ground_seal",
+      "from": [0, -0.01, 0],
+      "to": [16, 0, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 1], "texture": "#wood"},
+        "east": {"uv": [0, 0, 16, 1], "texture": "#wood"},
+        "south": {"uv": [0, 0, 16, 1], "texture": "#wood"},
+        "west": {"uv": [0, 0, 16, 1], "texture": "#wood"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#wood"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#wood"}
       }
     },
     {
