@@ -2,6 +2,7 @@ package com.allthecolonists.core;
 
 import org.slf4j.Logger;
 
+import com.allthecolonists.core.registry.ModBlockEntities;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
@@ -53,6 +54,9 @@ public class AllTheColonists {
         // BLOCKS + ITEMS aus ModBlocks registrieren
         ModBlocks.register(modEventBus);
 
+        // Block entities registrieren
+        ModBlockEntities.register(modEventBus);
+
         // Items registrieren
         ModItems.register(modEventBus);
 
@@ -70,9 +74,6 @@ public class AllTheColonists {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("Common Setup läuft für AllTheColonists...");
-
-        // MineColonies registers valid building blocks internally; no explicit block entity
-        // registration is required here for the Mekanism hut.
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
