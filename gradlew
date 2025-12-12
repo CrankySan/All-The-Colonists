@@ -138,8 +138,15 @@ else
         die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 Please set the JAVA_HOME variable in your environment to match the
-location of your Java installation."
+location of your Java installation." 
     fi
+fi
+
+# Prefer a locally installed Gradle when available to avoid wrapper downloads
+# in network-restricted environments.
+if [ -z "$GRADLEW_PREFER_WRAPPER" ] && command -v gradle >/dev/null 2>&1 ; then
+    echo "Using system Gradle from $(command -v gradle); set GRADLEW_PREFER_WRAPPER=true to force the wrapper."
+    exec gradle "$@"
 fi
 
 # Increase the maximum file descriptors if we can.
