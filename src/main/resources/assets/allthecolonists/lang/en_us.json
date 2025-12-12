@@ -1,16 +1,12 @@
 {
-  "itemGroup.allthecolonists": "Example Mod Tab",
-  "block.allthecolonists.example_block": "Example Block",
-  "item.allthecolonists.example_item": "Example Item",
-
-  "block.allthecolonists.mekanism_worker_hut": "Mekanism Worker Hut",
-  "block.allthecolonists.mekanism_hut": "Mekanism Hut",
-
-  "allthecolonists.configuration.title": "All The Colonists Configs",
-  "allthecolonists.configuration.section.allthecolonists.common.toml": "All The Colonists Configs",
-  "allthecolonists.configuration.section.allthecolonists.common.toml.title": "All The Colonists Configs",
-  "allthecolonists.configuration.items": "Item List",
-  "allthecolonists.configuration.logDirtBlock": "Log Dirt Block",
-  "allthecolonists.configuration.magicNumberIntroduction": "Magic Number Text",
-  "allthecolonists.configuration.magicNumber": "Magic Number"
+  "itemGroup.AllTheColonists": "All The Colonists",
+  "block.allthecolonists.blockhutmekanism": "Mekanism Hut",
+  "block.allthecolonists.blockhutmekanism.name": "Mekanism Hut",
+  "item.allthecolonists.blockhutmekanism": "Mekanism Hut",
+  "item.allthecolonists.void_icon": "Void Icon",
+  "com.allthecolonists.coremod.jei.mekanist": "Crafts Mekanism Alloys and Circuits",
+  "com.allthecolonists.building.mekanist.desc": "Crafts Alloys and Circuits and handles unique recipes",
+  "com.allthecolonists.coremod.job.mekanist": "Mekanist",
+  "com.allthecolonists.job.mekanist": "Mekanist",
+  "com.minecolonies.building.mekanist": "Mekanism Hut"
 }
