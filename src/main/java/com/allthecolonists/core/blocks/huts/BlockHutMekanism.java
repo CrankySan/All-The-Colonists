@@ -29,6 +29,6 @@ public class BlockHutMekanism extends AbstractBlockHut<BlockHutMekanism>
     {
         // Fallback to an existing MineColonies building entry until a dedicated Mekanism hut is implemented.
         // Using a known entry prevents null-pointer issues when a block entity is created for this block.
-        return IBuildingRegistry.getInstance().get(new ResourceLocation("minecolonies", "warehouse"));
+        return IBuildingRegistry.getInstance().get(ResourceLocation.fromNamespaceAndPath("minecolonies", "warehouse"));
     }
 }
