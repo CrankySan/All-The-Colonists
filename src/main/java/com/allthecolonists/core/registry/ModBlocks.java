@@ -8,8 +8,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ModBlocks {
@@ -21,7 +21,7 @@ public class ModBlocks {
             DeferredRegister.createItems(AllTheColonists.MODID);
 
     // Mekanism Worker Hut Block
-    public static final DeferredBlock<BlockHutMekanism> BLOCKHUTMEKANISM =
+    public static final DeferredHolder<?, BlockHutMekanism> BLOCKHUTMEKANISM =
             BLOCKS.register(
                     "blockhutmekanism",
                     () -> new BlockHutMekanism(

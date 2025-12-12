@@ -27,15 +27,17 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     mavenCentral()
+    maven {
+        name = "NeoForged"
+        url = uri("https://maven.neoforged.net/releases")
+    }
+    maven {
+        name = "ParchmentMC"
+        url = uri("https://maven.parchmentmc.org")
+    }
 }
 
 dependencies {
-
-    // Lokale LDTTeam Mods für 1.21.1
-    implementation files("libs/minecolonies-1.1.1223-1.21.1-snapshot.jar")
-    implementation files("libs/structurize-1.0.796-1.21.1-snapshot.jar")
-    implementation files("libs/domum_ornamentum-1.0.223-snapshot.jar")
-    implementation files("libs/multipiston-1.2.58-1.21.1.jar")
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
