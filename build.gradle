@@ -80,6 +80,10 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.named('jar').configure {
     exclude('net/minecraft/**', 'net/neoforged/**')
+    // Exclude stub classes that are only present to satisfy compilation.
+    // Packaging them would cause module/package conflicts with the real
+    // MineColonies mod at runtime (e.g., duplicate com.minecolonies.api packages).
+    exclude('com/minecolonies/**')
 }
 
 idea {
