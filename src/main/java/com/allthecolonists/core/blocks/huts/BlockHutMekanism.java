@@ -2,6 +2,8 @@ package com.allthecolonists.core.blocks.huts;
 
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
+import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +27,8 @@ public class BlockHutMekanism extends AbstractBlockHut<BlockHutMekanism>
     @Override
     public BuildingEntry getBuildingEntry()
     {
-        // TODO: register a proper building entry for the Mekanism worker hut.
-        return null;
+        // Fallback to an existing MineColonies building entry until a dedicated Mekanism hut is implemented.
+        // Using a known entry prevents null-pointer issues when a block entity is created for this block.
+        return IBuildingRegistry.getInstance().get(new ResourceLocation("minecolonies", "warehouse"));
     }
 }

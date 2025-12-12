@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
+import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;
@@ -70,6 +71,10 @@ public class AllTheColonists {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("Common Setup läuft für AllTheColonists...");
+
+        // Register the Mekanism hut block as a valid MineColonies colony building block entity host
+        // so that highlighting or creating its block entity does not crash on the client.
+        MinecoloniesTileEntities.BUILDING.get().addBlock(ModBlocks.BLOCKHUTMEKANISM.get());
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
