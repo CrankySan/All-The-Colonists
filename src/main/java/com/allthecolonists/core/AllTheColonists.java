@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
+import com.allthecolonists.core.registry.ModBuildings;
+import com.allthecolonists.core.registry.ModJobs;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;
@@ -53,8 +55,14 @@ public class AllTheColonists {
         // BLOCKS + ITEMS aus ModBlocks registrieren
         ModBlocks.register(modEventBus);
 
+        // Buildings registrieren
+        ModBuildings.register(modEventBus);
+
         // Items registrieren
         ModItems.register(modEventBus);
+
+        // Jobs registrieren
+        ModJobs.register(modEventBus);
 
         // Creative Tabs registrieren
         CREATIVE_MODE_TABS.register(modEventBus);
