@@ -7,15 +7,12 @@
     },
     "T": {
       "item": "structurize:sceptergold"
-    },
-    "X": {
-      "tag": "minecraft:planks"
     }
   },
   "pattern": [
-    "XTX",
-    "XBX",
-    "XXX"
+    "BBB",
+    "BTB",
+    "BBB"
   ],
   "result": {
     "item": "allthecolonists:blockhutmekanism"
