@@ -1,12 +1,9 @@
 package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
-import com.allthecolonists.core.blocks.custom.MekanismWorkerHutBlock;
+import com.allthecolonists.core.blocks.huts.BlockHutMekanism;
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -21,12 +18,10 @@ public class ModBlocks {
             DeferredRegister.createItems(AllTheColonists.MODID);
 
     // Mekanism Worker Hut Block
-    public static final DeferredBlock<MekanismWorkerHutBlock> BLOCKHUTMEKANISM =
+    public static final DeferredBlock<BlockHutMekanism> BLOCKHUTMEKANISM =
             BLOCKS.register(
                     "blockhutmekanism",
-                    () -> new MekanismWorkerHutBlock(
-                            BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    )
+                    BlockHutMekanism::new
             );
 
     public static final DeferredItem<BlockItem> BLOCKHUTMEKANISM_ITEM =
