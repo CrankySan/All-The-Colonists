@@ -3,6 +3,7 @@ package com.allthecolonists.core;
 import org.slf4j.Logger;
 
 import com.allthecolonists.core.registry.ModBlocks;
+import com.allthecolonists.core.registry.ModBlockEntities;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
 
@@ -52,6 +53,9 @@ public class AllTheColonists {
 
         // BLOCKS + ITEMS aus ModBlocks registrieren
         ModBlocks.register(modEventBus);
+
+        // BlockEntities registrieren
+        ModBlockEntities.register(modEventBus);
 
         // Items registrieren
         ModItems.register(modEventBus);
