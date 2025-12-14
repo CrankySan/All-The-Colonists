@@ -4,9 +4,6 @@ import com.allthecolonists.core.AllTheColonists;
 import com.allthecolonists.core.blocks.custom.MekanismWorkerHutBlock;
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -24,9 +21,7 @@ public class ModBlocks {
     public static final DeferredBlock<MekanismWorkerHutBlock> BLOCKHUTMEKANISM =
             BLOCKS.register(
                     "blockhutmekanism",
-                    () -> new MekanismWorkerHutBlock(
-                            BlockBehaviour.Properties.of().mapColor(MapColor.METAL)
-                    )
+                    MekanismWorkerHutBlock::new
             );
 
     public static final DeferredItem<BlockItem> BLOCKHUTMEKANISM_ITEM =
