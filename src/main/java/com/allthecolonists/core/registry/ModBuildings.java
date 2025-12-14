@@ -1,8 +1,8 @@
 package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
-import com.allthecolonists.core.blocks.huts.BlockHutMekanism;
 import com.allthecolonists.core.colony.buildings.workerbuildings.BuildingMekanism;
+import com.minecolonies.api.colony.buildings.ModBuildings;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
 
@@ -18,22 +18,29 @@ public final class ModBuildings {
             ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut");
 
     private static final DeferredRegister<BuildingEntry> BUILDINGS =
-            DeferredRegister.create(IBuildingRegistry.getInstance().key(), AllTheColonists.MODID);
+            DeferredRegister.create(
+                    IBuildingRegistry.getInstance().key(),
+                    AllTheColonists.MODID
+            );
 
     public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
             BUILDINGS.register(
                     MEKANISM_HUT_ID.getPath(),
                     () -> {
-                        final BuildingEntry mechanicEntry = com.minecolonies.api.colony.buildings.ModBuildings.mechanic.get();
+                        final BuildingEntry mechanicEntry = ModBuildings.mechanic.get();
+
                         final BuildingEntry.Builder builder = new BuildingEntry.Builder()
                                 .setBuildingBlock(ModBlocks.BLOCKHUTMEKANISM.get())
                                 .setBuildingProducer(BuildingMekanism::new)
                                 .setBuildingViewProducer(
-                                        () -> (colonyView, pos) -> mechanicEntry.produceBuildingView(pos, colonyView)
+                                        () -> (colonyView, pos) ->
+                                                mechanicEntry.produceBuildingView(pos, colonyView)
                                 )
                                 .setRegistryName(MEKANISM_HUT_ID);
 
-                        mechanicEntry.getModuleProducers().forEach(builder::addBuildingModuleProducer);
+                        mechanicEntry.getModuleProducers()
+                                .forEach(builder::addBuildingModuleProducer);
+
                         return builder.createBuildingEntry();
                     }
             );
@@ -41,7 +48,7 @@ public final class ModBuildings {
     private ModBuildings() {
     }
 
-    public static void register(IEventBus eventBus) {
+    public static void register(final IEventBus eventBus) {
         BUILDINGS.register(eventBus);
     }
 }

@@ -2,6 +2,7 @@ package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
 import com.allthecolonists.core.colony.jobs.JobMekanism;
+import com.minecolonies.api.colony.jobs.ModJobs;
 import com.minecolonies.api.colony.jobs.registry.IJobRegistry;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 
@@ -17,17 +18,22 @@ public final class ModJobs {
             ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism");
 
     private static final DeferredRegister<JobEntry> JOBS =
-            DeferredRegister.create(IJobRegistry.getInstance().key(), AllTheColonists.MODID);
+            DeferredRegister.create(
+                    IJobRegistry.getInstance().key(),
+                    AllTheColonists.MODID
+            );
 
     public static final DeferredHolder<JobEntry, JobEntry> MEKANISM_JOB =
             JOBS.register(
                     MEKANISM.getPath(),
                     () -> {
-                        final JobEntry mechanicEntry = com.minecolonies.api.colony.jobs.ModJobs.mechanic.get();
+                        final JobEntry mechanicEntry = ModJobs.mechanic.get();
+
                         final JobEntry.Builder builder = new JobEntry.Builder()
                                 .setJobProducer(JobMekanism::new)
                                 .setJobViewProducer(mechanicEntry.getJobViewProducer())
                                 .setRegistryName(MEKANISM);
+
                         return builder.createJobEntry();
                     }
             );
@@ -35,7 +41,7 @@ public final class ModJobs {
     private ModJobs() {
     }
 
-    public static void register(IEventBus eventBus) {
+    public static void register(final IEventBus eventBus) {
         JOBS.register(eventBus);
     }
 }
