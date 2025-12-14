@@ -15,32 +15,28 @@ import net.minecraft.world.level.block.state.BlockState;
  *
  * The class intentionally extends {@link BlockHutMechanic} to inherit all hut
  * placement, GUI and blueprint lookup logic while pointing to the existing
- * mechanic building entry from the MineColonies registry. This lets the new
- * hut open the familiar MineColonies UI when right-clicked, both in hand and
- * when placed in the world.
+ * mechanic building entry from the MineColonies registry.
  */
 public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
-    private static final ResourceLocation MECHANIC_ENTRY = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
+    private static final ResourceLocation MECHANIC_ENTRY =
+            ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
 
     @Override
     public String getHutName() {
-        // Keep the user-facing name distinct from MineColonies' "mechanic" to
-        // prevent resource collisions inside this mod.
+        // Distinct internal hut name to avoid MineColonies collisions
         return "mekanismworker";
     }
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        // Reuse the mechanist registration from MineColonies to inherit all UI
-        // wiring, crafting modules and AI logic.
+        // Reuse MineColonies mechanic building entry
         return IBuildingRegistry.getInstance().get(MECHANIC_ENTRY);
     }
 
     @Override
     public BlockEntity newBlockEntity(final BlockPos pos, final BlockState state) {
-        // Use a dedicated block entity type that includes the Mekanism hut block
-        // to avoid MineColonies' valid-block validation crash.
+        // Custom block entity to satisfy MineColonies valid-hut checks
         return ModBlockEntities.MEKANISM_WORKER_TILE.get().create(pos, state);
     }
 }
