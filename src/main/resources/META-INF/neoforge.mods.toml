@@ -57,3 +57,10 @@ file="META-INF/accesstransformer.cfg"
     ordering="NONE"
     side="BOTH"
 
+[[dependencies.allthecolonists]]
+    modId="minecolonies"
+    type="required"
+    versionRange="[1.1.0, )"
+    ordering="AFTER"
+    side="BOTH"
+
