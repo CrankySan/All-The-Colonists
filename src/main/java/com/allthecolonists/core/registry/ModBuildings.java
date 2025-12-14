@@ -16,39 +16,43 @@ public final class ModBuildings {
     public static final ResourceLocation MEKANISM_HUT_ID =
             ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut");
 
-    private static final DeferredRegister<BuildingEntry> BUILDINGS =
-            DeferredRegister.create(
-                    IBuildingRegistry.getInstance().key(),
-                    AllTheColonists.MODID
-            );
+    private static DeferredRegister<BuildingEntry> BUILDINGS;
 
-    public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
-            BUILDINGS.register(
-                    MEKANISM_HUT_ID.getPath(),
-                    () -> {
-                        final BuildingEntry mechanicEntry =
-                                com.minecolonies.api.colony.buildings.ModBuildings.mechanic.get();
-
-                        final BuildingEntry.Builder builder = new BuildingEntry.Builder()
-                                .setBuildingBlock(ModBlocks.BLOCKHUTMEKANISM.get())
-                                .setBuildingProducer(BuildingMekanism::new)
-                                .setBuildingViewProducer(
-                                        () -> (colonyView, pos) ->
-                                                mechanicEntry.produceBuildingView(pos, colonyView)
-                                )
-                                .setRegistryName(MEKANISM_HUT_ID);
-
-                        mechanicEntry.getModuleProducers()
-                                .forEach(builder::addBuildingModuleProducer);
-
-                        return builder.createBuildingEntry();
-                    }
-            );
+    public static DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT;
 
     private ModBuildings() {
     }
 
     public static void register(final IEventBus eventBus) {
+        if (BUILDINGS == null) {
+            BUILDINGS = DeferredRegister.create(
+                    IBuildingRegistry.getInstance().key(),
+                    AllTheColonists.MODID
+            );
+
+            MEKANISM_HUT =
+                    BUILDINGS.register(
+                            MEKANISM_HUT_ID.getPath(),
+                            () -> {
+                                final BuildingEntry mechanicEntry =
+                                        com.minecolonies.api.colony.buildings.ModBuildings.mechanic.get();
+
+                                final BuildingEntry.Builder builder = new BuildingEntry.Builder()
+                                        .setBuildingBlock(ModBlocks.BLOCKHUTMEKANISM.get())
+                                        .setBuildingProducer(BuildingMekanism::new)
+                                        .setBuildingViewProducer(
+                                                () -> (colonyView, pos) ->
+                                                        mechanicEntry.produceBuildingView(pos, colonyView)
+                                        )
+                                        .setRegistryName(MEKANISM_HUT_ID);
+
+                                mechanicEntry.getModuleProducers()
+                                        .forEach(builder::addBuildingModuleProducer);
+
+                                return builder.createBuildingEntry();
+                            }
+                    );
+        }
         BUILDINGS.register(eventBus);
     }
 }
