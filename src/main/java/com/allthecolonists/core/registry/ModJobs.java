@@ -2,7 +2,6 @@ package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
 import com.allthecolonists.core.colony.jobs.JobMekanism;
-import com.minecolonies.api.colony.jobs.ModJobs;
 import com.minecolonies.api.colony.jobs.registry.IJobRegistry;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 
@@ -27,7 +26,8 @@ public final class ModJobs {
             JOBS.register(
                     MEKANISM.getPath(),
                     () -> {
-                        final JobEntry mechanicEntry = ModJobs.mechanic.get();
+                        final JobEntry mechanicEntry =
+                                com.minecolonies.api.colony.jobs.ModJobs.mechanic.get();
 
                         final JobEntry.Builder builder = new JobEntry.Builder()
                                 .setJobProducer(JobMekanism::new)
