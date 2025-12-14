@@ -2,7 +2,6 @@ package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
 import com.allthecolonists.core.colony.buildings.workerbuildings.BuildingMekanism;
-import com.minecolonies.api.colony.buildings.ModBuildings;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
 
@@ -27,7 +26,8 @@ public final class ModBuildings {
             BUILDINGS.register(
                     MEKANISM_HUT_ID.getPath(),
                     () -> {
-                        final BuildingEntry mechanicEntry = ModBuildings.mechanic.get();
+                        final BuildingEntry mechanicEntry =
+                                com.minecolonies.api.colony.buildings.ModBuildings.mechanic.get();
 
                         final BuildingEntry.Builder builder = new BuildingEntry.Builder()
                                 .setBuildingBlock(ModBlocks.BLOCKHUTMEKANISM.get())
