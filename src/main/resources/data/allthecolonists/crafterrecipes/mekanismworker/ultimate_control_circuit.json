@@ -1,0 +1,17 @@
+{
+  "type": "recipe",
+  "crafter": "mekanism_metallurgic_infuser",
+  "inputs": [
+    {
+      "count": 20,
+      "id": "mekanism:alloy_atomic"
+    },
+    {
+      "id": "mekanism:elite_control_circuit"
+    }
+  ],
+  "intermediate": "mekanism:metallurgic_infuser",
+  "result": {
+    "id": "mekanism:ultimate_control_circuit"
+  }
+}

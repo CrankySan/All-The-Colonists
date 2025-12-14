@@ -1,0 +1,17 @@
+{
+  "type": "recipe",
+  "crafter": "mekanism_metallurgic_infuser",
+  "inputs": [
+    {
+      "count": 20,
+      "id": "mekanism:refined_obsidian_dust"
+    },
+    {
+      "id": "mekanism:alloy_reinforced"
+    }
+  ],
+  "intermediate": "mekanism:metallurgic_infuser",
+  "result": {
+    "id": "mekanism:alloy_atomic"
+  }
+}
