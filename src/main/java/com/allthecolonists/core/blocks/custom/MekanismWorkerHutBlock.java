@@ -1,47 +1,35 @@
 package com.allthecolonists.core.blocks.custom;
 
-import com.mojang.serialization.MapCodec;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
+import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
+import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
+import com.minecolonies.core.blocks.huts.BlockHutMechanic;
+import net.minecraft.resources.ResourceLocation;
 
-public class MekanismWorkerHutBlock extends HorizontalDirectionalBlock {
+/**
+ * Mekanism worker hut that mirrors the MineColonies mechanist hut behavior but
+ * uses AllTheColonists naming to avoid collisions with the upstream block.
+ *
+ * The class intentionally extends {@link BlockHutMechanic} to inherit all hut
+ * placement, GUI and blueprint lookup logic while pointing to the existing
+ * mechanic building entry from the MineColonies registry. This lets the new
+ * hut open the familiar MineColonies UI when right-clicked, both in hand and
+ * when placed in the world.
+ */
+public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
-    public static final MapCodec<MekanismWorkerHutBlock> CODEC = simpleCodec(MekanismWorkerHutBlock::new);
+    private static final ResourceLocation MECHANIC_ENTRY = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
 
-    public MekanismWorkerHutBlock(BlockBehaviour.Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+    @Override
+    public String getHutName() {
+        // Keep the user-facing name distinct from MineColonies' "mechanic" to
+        // prevent resource collisions inside this mod.
+        return "mekanismworker";
     }
 
     @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return CODEC;
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, Rotation rotation) {
-        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, Mirror mirror) {
-        return rotate(state, mirror.getRotation(state.getValue(FACING)));
+    public BuildingEntry getBuildingEntry() {
+        // Reuse the mechanist registration from MineColonies to inherit all UI
+        // wiring, crafting modules and AI logic.
+        return IBuildingRegistry.getInstance().get(MECHANIC_ENTRY);
     }
 }
