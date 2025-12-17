@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
+import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
+import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -62,6 +64,7 @@ public class AllTheColonists {
         // Events
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(this::onRegisterBlockEntityValidBlocks);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -70,6 +73,10 @@ public class AllTheColonists {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("Common Setup läuft für AllTheColonists...");
+    }
+
+    private void onRegisterBlockEntityValidBlocks(BlockEntityTypeAddBlocksEvent event) {
+        event.modify(MinecoloniesTileEntities.BUILDING.get(), ModBlocks.BLOCKHUTMEKANISM.get());
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
