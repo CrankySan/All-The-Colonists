@@ -2,6 +2,7 @@ package com.allthecolonists.core;
 
 import org.slf4j.Logger;
 
+import com.allthecolonists.core.colony.buildings.workerbuildings.BuildingMekanismWorker;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
@@ -79,10 +80,22 @@ public class AllTheColonists {
             ResourceLocation mechanicId = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
 
             registry.getOptional(mechanicId).ifPresent(mechanicEntry -> {
-                if (!registry.containsKey(mekanismId)) {
-                    helper.register(mekanismId, mechanicEntry);
-                    LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
+                if (registry.containsKey(mekanismId)) {
+                    return;
                 }
+
+                var builder = new BuildingEntry.Builder();
+                builder.setRegistryName(mekanismId);
+                builder.setBuildingBlock(ModBlocks.BLOCKHUTMEKANISM.get());
+                builder.setBuildingProducer((colony, pos) -> new BuildingMekanismWorker(colony, pos));
+                builder.setBuildingViewProducer(() -> mechanicEntry::produceBuildingView);
+
+                mechanicEntry.getModuleProducers().stream()
+                        .filter(producer -> !producer.key.contains("cutter"))
+                        .forEach(builder::addBuildingModuleProducer);
+
+                helper.register(mekanismId, builder.createBuildingEntry());
+                LOGGER.info("Registered mekanism building entry using mekanism hut block and mechanic modules (cutter excluded).");
             });
         });
     }
