@@ -1,12 +1,8 @@
 package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
-import com.allthecolonists.core.blocks.custom.MekanismWorkerHutBlock;
-
-import net.minecraft.world.item.BlockItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ModBlocks {
@@ -16,16 +12,6 @@ public class ModBlocks {
 
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(AllTheColonists.MODID);
-
-    // Mekanism Worker Hut Block
-    public static final DeferredBlock<MekanismWorkerHutBlock> BLOCKHUTMEKANISM =
-            BLOCKS.register(
-                    "blockhutmekanism",
-                    MekanismWorkerHutBlock::new
-            );
-
-    public static final DeferredItem<BlockItem> BLOCKHUTMEKANISM_ITEM =
-            ITEMS.registerSimpleBlockItem("blockhutmekanism", BLOCKHUTMEKANISM);
 
     // Registrierung
     public static void register(IEventBus bus) {

@@ -5,10 +5,8 @@ import com.allthecolonists.core.registry.ModHuts;
 import com.allthecolonists.core.registry.ModItems;
 import com.allthecolonists.core.registry.ModJobs;
 import com.mojang.logging.LogUtils;
-import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
@@ -16,7 +14,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -38,9 +35,7 @@ public class AllTheColonists
                     .title(Component.translatable("itemGroup.AllTheColonists"))
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
-                    .displayItems((parameters, output) -> {
-                        output.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM.get());
-                    })
+                    .displayItems((parameters, output) -> output.accept(ModItems.VOID_ICON))
                     .build()
             );
 
@@ -57,26 +52,17 @@ public class AllTheColonists
 
         // Events
         modEventBus.addListener(this::addCreative);
-        modEventBus.addListener(this::onRegisterBlockEntityValidBlocks);
 
         NeoForge.EVENT_BUS.register(this);
 
         LOGGER.info("AllTheColonists initialized");
     }
 
-    private void onRegisterBlockEntityValidBlocks(final BlockEntityTypeAddBlocksEvent event)
-    {
-        event.modify(
-                MinecoloniesTileEntities.BUILDING.get(),
-                ModBlocks.BLOCKHUTMEKANISM.get()
-        );
-    }
-
     private void addCreative(final BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
         {
-            event.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM);
+            event.accept(ModItems.VOID_ICON);
         }
     }
 

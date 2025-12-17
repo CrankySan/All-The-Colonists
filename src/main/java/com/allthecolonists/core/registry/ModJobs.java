@@ -1,11 +1,9 @@
 package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
-import com.allthecolonists.core.colony.jobs.JobMekanism;
 import com.minecolonies.api.colony.jobs.registry.IJobRegistry;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 /**
@@ -19,14 +17,6 @@ public final class ModJobs
             DeferredRegister.create(
                     IJobRegistry.getInstance().key(),
                     AllTheColonists.MODID
-            );
-
-    public static final DeferredHolder<JobEntry, JobEntry> MEKANISM =
-            JOBS.register(
-                    "mekanism",
-                    () -> new JobEntry.Builder()
-                            .setJobClass(JobMekanism.class)
-                            .createJobEntry()
             );
 
     public static void register(final IEventBus bus)
