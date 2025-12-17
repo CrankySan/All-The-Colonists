@@ -1,20 +1,19 @@
 {
-  "type": "recipe",
-  "crafter": "mekanism:metallurgic_infuser",
+  "type": "minecolonies:crafting",
+  "crafter": "mekanism",
   "inputs": [
     {
-      "count": 1,
-      "id": "minecraft:redstone"
+      "item": "minecraft:redstone",
+      "count": 1
     },
     {
-      "count": 1,
-      "id": "minecraft:iron_ingot"
+      "item": "minecraft:iron_ingot",
+      "count": 1
     }
   ],
-  "intermediate": "minecraft:air",
   "result": {
-    "count": 1,
-    "id": "mekanism:alloy_infused"
+    "item": "mekanism:infused_alloy",
+    "count": 1
   },
-  "min-building-level": 1
+  "minBuildingLevel": 1
 }

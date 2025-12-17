@@ -3,38 +3,33 @@ package com.allthecolonists.core.blocks.custom;
 import com.allthecolonists.core.AllTheColonists;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
-import com.minecolonies.core.blocks.huts.BlockHutMechanic;
 import net.minecraft.resources.ResourceLocation;
 
 /**
- * Mekanism worker hut that mirrors the MineColonies mechanist hut behavior but
- * uses AllTheColonists naming to avoid collisions with the upstream block.
+ * Mekanism worker hut block.
  *
- * The class intentionally extends {@link BlockHutMechanic} to inherit all hut
- * placement, GUI and blueprint lookup logic while pointing to the existing
- * mechanic building entry from the MineColonies registry. This lets the new
- * hut open the familiar MineColonies UI when right-clicked, both in hand and
- * when placed in the world.
+ * This hut is fully independent from the MineColonies mechanic hut.
+ * It intentionally does NOT fall back to the mechanic building entry,
+ * to avoid pulling in cutter recipes and mechanic GUI tabs.
  */
-public class MekanismWorkerHutBlock extends BlockHutMechanic {
-
-    private static final ResourceLocation MEKANISM_ENTRY = ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism");
-    private static final ResourceLocation MECHANIC_ENTRY = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
+public class MekanismWorkerHutBlock extends AbstractBlockHut
+{
+    private static final ResourceLocation MEKANISM_ENTRY =
+            ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism");
 
     @Override
-    public String getHutName() {
+    public String getHutName()
+    {
         return "mekanism";
     }
 
     @Override
-    public BuildingEntry getBuildingEntry() {
-        var registry = IBuildingRegistry.getInstance();
-        return registry
+    public BuildingEntry getBuildingEntry()
+    {
+        return IBuildingRegistry.getInstance()
                 .getOptional(MEKANISM_ENTRY)
-                .or(() -> registry.getOptional(MECHANIC_ENTRY))
-                .orElseGet(() -> {
-                    AllTheColonists.LOGGER.error("No mekanism or mechanic building entry found; falling back to default mechanic hut entry.");
-                    return super.getBuildingEntry();
-                });
+                .orElseThrow(() -> new IllegalStateException(
+                        "Mekanism building entry not registered: " + MEKANISM_ENTRY
+                ));
     }
 }
