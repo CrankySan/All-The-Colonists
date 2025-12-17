@@ -77,16 +77,14 @@ public class AllTheColonists {
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("Common Setup läuft für AllTheColonists...");
 
-        event.enqueueWork(() -> {
-            var registry = IBuildingRegistry.getInstance();
-            ResourceLocation mekanismId = ResourceLocation.fromNamespaceAndPath(MODID, "mekanism");
-            BuildingEntry mechanicEntry = registry.get(ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic"));
+        var registry = IBuildingRegistry.getInstance();
+        ResourceLocation mekanismId = ResourceLocation.fromNamespaceAndPath(MODID, "mekanism");
+        BuildingEntry mechanicEntry = registry.get(ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic"));
 
-            if (mechanicEntry != null && !registry.containsKey(mekanismId)) {
-                Registry.register(registry, mekanismId, mechanicEntry);
-                LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
-            }
-        });
+        if (mechanicEntry != null && !registry.containsKey(mekanismId)) {
+            Registry.register(registry, mekanismId, mechanicEntry);
+            LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
+        }
     }
 
     private void onRegisterBlockEntityValidBlocks(BlockEntityTypeAddBlocksEvent event) {
