@@ -21,10 +21,15 @@ public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
     @Override
     public String getHutName() {
-        // Return the Mekanism hut name so the blueprint and translations map
-        // to the Mekanism-specific assets while still reusing the mechanic
-        // building entry for functionality.
-        return "mekanism";
+        // Reuse the vanilla mechanic hut identifier so MineColonies loads the
+        // correct building view and GUI definitions. Returning the custom
+        // "mekanism" id here causes MineColonies to fall back to the generic
+        // placeholder window, leaving the building reference null and
+        // crashing the hire worker screen when the player clicks "Assign
+        // Worker". By reporting the mechanic hut name, we piggyback on the
+        // existing window XML and avoid the null building view while still
+        // keeping the Mekanism-specific block/item assets.
+        return "mechanic";
     }
 
     @Override
