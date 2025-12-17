@@ -21,9 +21,12 @@ public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
     @Override
     public String getHutName() {
-        // Keep the user-facing name distinct from MineColonies' "mechanic" to
-        // prevent resource collisions inside this mod.
-        return "mekanismworker";
+        // Return the MineColonies mechanic hut name so the colony logic links
+        // this block to the existing building entry. Using a custom name here
+        // prevents the building from being reattached after the first open,
+        // which results in the "missing building" warning on subsequent
+        // interactions.
+        return "mechanic";
     }
 
     @Override

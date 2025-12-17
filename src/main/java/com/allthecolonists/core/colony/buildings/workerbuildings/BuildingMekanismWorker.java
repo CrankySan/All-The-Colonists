@@ -16,8 +16,8 @@ public class BuildingMekanismWorker extends BuildingMechanic {
 
     @Override
     public String getSchematicName() {
-        // Point to a Mekanism-specific schematic namespace. Without dedicated
-        // blueprints, this will still fall back to the mechanist logic.
-        return "mekanismworker";
+        // Reuse the mechanic schematics so the hut always finds valid
+        // blueprints and stays attached to the colony after reopening.
+        return "mechanic";
     }
 }
