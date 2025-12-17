@@ -6,7 +6,10 @@
   "item.allthecolonists.void_icon": "Void Icon",
   "com.allthecolonists.coremod.jei.mekanist": "Crafts Mekanism Alloys and Circuits",
   "com.allthecolonists.building.mekanist.desc": "Crafts Alloys and Circuits and handles unique recipes",
-  "com.allthecolonists.coremod.job.mekanist": "Mekanist",
-  "com.allthecolonists.job.mekanist": "Mekanist",
-  "com.minecolonies.building.mekanist": "Mekanism Hut"
+  "com.allthecolonists.coremod.job.mekanist": "Mekanism Worker",
+  "com.allthecolonists.job.mekanist": "Mekanism Worker",
+  "com.minecolonies.building.mekanist": "Mekanism Hut",
+  "com.minecolonies.coremod.jei.mekanist": "Crafts Mekanism Alloys and Circuits",
+  "com.minecolonies.coremod.job.mekanist": "Mekanism Worker",
+  "com.minecolonies.job.mekanist": "Mekanism Worker"
 }
