@@ -1,6 +1,6 @@
 {
   "type": "recipe",
-  "crafter": "metallurgic_infuser_custom",
+  "crafter": "mekanism:metallurgic_infuser",
   "inputs": [
     {
       "count": 1,
