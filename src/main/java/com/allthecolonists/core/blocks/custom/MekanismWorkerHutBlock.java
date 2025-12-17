@@ -32,6 +32,9 @@ public class MekanismWorkerHutBlock extends BlockHutMechanic {
         return registry
                 .getOptional(MEKANISM_ENTRY)
                 .or(() -> registry.getOptional(MECHANIC_ENTRY))
-                .orElse(null);
+                .orElseGet(() -> {
+                    AllTheColonists.LOGGER.error("No mekanism or mechanic building entry found; falling back to default mechanic hut entry.");
+                    return super.getBuildingEntry();
+                });
     }
 }
