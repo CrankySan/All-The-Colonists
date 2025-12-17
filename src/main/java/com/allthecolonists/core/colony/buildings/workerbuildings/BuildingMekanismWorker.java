@@ -16,12 +16,8 @@ public class BuildingMekanismWorker extends BuildingMechanic {
 
     @Override
     public String getSchematicName() {
-        // Reuse the mechanic schematics shipped with MineColonies so the hut
-        // always resolves a real blueprint pack. Returning "mekanism" here
-        // points to a non-existent folder in this pack, which makes
-        // MineColonies fall back to the placeholder hut window and drop the
-        // building view. By keeping the mechanic identifier, the placed hut
-        // stays bound to the colony and loads the proper crafting UI assets.
-        return "mechanic";
+        // Use the existing Mekanist blueprint shipped with this pack so the
+        // hut resolves a real layout without the newly generated schematics.
+        return "mekanist";
     }
 }
