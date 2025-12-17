@@ -8,7 +8,6 @@ import com.mojang.logging.LogUtils;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
 import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
@@ -22,12 +21,11 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -65,26 +63,26 @@ public class AllTheColonists {
         CREATIVE_MODE_TABS.register(modEventBus);
 
         // Events
-        modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::onRegisterBlockEntityValidBlocks);
+        modEventBus.addListener(this::registerBuildingEntries);
 
         NeoForge.EVENT_BUS.register(this);
 
         LOGGER.info("AllTheColonists wurde initialisiert!");
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
-        LOGGER.info("Common Setup läuft für AllTheColonists...");
+    private void registerBuildingEntries(RegisterEvent event) {
+        event.register(IBuildingRegistry.getInstance().key(), helper -> {
+            var registry = IBuildingRegistry.getInstance();
+            ResourceLocation mekanismId = ResourceLocation.fromNamespaceAndPath(MODID, "mekanism");
+            BuildingEntry mechanicEntry = registry.get(ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic"));
 
-        var registry = IBuildingRegistry.getInstance();
-        ResourceLocation mekanismId = ResourceLocation.fromNamespaceAndPath(MODID, "mekanism");
-        BuildingEntry mechanicEntry = registry.get(ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic"));
-
-        if (mechanicEntry != null && !registry.containsKey(mekanismId)) {
-            Registry.register(registry, mekanismId, mechanicEntry);
-            LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
-        }
+            if (mechanicEntry != null && !registry.containsKey(mekanismId)) {
+                helper.register(mekanismId, mechanicEntry);
+                LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
+            }
+        });
     }
 
     private void onRegisterBlockEntityValidBlocks(BlockEntityTypeAddBlocksEvent event) {
