@@ -1,4 +1,4 @@
-ackage com.allthecolonists.core.blocks;
+package com.allthecolonists.core.blocks;
 
 import com.minecolonies.core.blocks.huts.BlockHutMechanic;
 
