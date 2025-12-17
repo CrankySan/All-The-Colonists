@@ -1,0 +1,20 @@
+{
+  "type": "recipe",
+  "crafter": "metallurgic_infuser_custom",
+  "inputs": [
+    {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:iron_ingot"
+    }
+  ],
+  "intermediate": "minecraft:air",
+  "result": {
+    "count": 1,
+    "id": "mekanism:alloy_infused"
+  },
+  "min-building-level": 1
+}
