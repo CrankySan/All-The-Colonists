@@ -21,12 +21,10 @@ public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
     @Override
     public String getHutName() {
-        // Return the MineColonies mechanic hut name so the colony logic links
-        // this block to the existing building entry. Using a custom name here
-        // prevents the building from being reattached after the first open,
-        // which results in the "missing building" warning on subsequent
-        // interactions.
-        return "mechanic";
+        // Return the Mekanism hut name so the blueprint and translations map
+        // to the Mekanism-specific assets while still reusing the mechanic
+        // building entry for functionality.
+        return "mekanist";
     }
 
     @Override
