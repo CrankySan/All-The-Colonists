@@ -1,7 +1,6 @@
 package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
-import com.allthecolonists.core.blocks.MekanismWorkerHutBlock;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
@@ -31,10 +30,7 @@ public final class ModHuts
                     AllTheColonists.MODID
             );
 
-            buildings.register(
-                    MekanismWorkerHutBlock.class.getSimpleName().toLowerCase(),
-                    ModHuts::copyMechanicEntry
-            );
+            buildings.register(ModBlocks.BLOCKHUTMEKANISM.getId().getPath(), ModHuts::copyMechanicEntry);
 
             buildings.register(bus);
         }
