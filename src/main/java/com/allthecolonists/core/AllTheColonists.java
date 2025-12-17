@@ -76,12 +76,14 @@ public class AllTheColonists {
         event.register(IBuildingRegistry.getInstance().key(), helper -> {
             var registry = IBuildingRegistry.getInstance();
             ResourceLocation mekanismId = ResourceLocation.fromNamespaceAndPath(MODID, "mekanism");
-            BuildingEntry mechanicEntry = registry.get(ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic"));
+            ResourceLocation mechanicId = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
 
-            if (mechanicEntry != null && !registry.containsKey(mekanismId)) {
-                helper.register(mekanismId, mechanicEntry);
-                LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
-            }
+            registry.getOptional(mechanicId).ifPresent(mechanicEntry -> {
+                if (!registry.containsKey(mekanismId)) {
+                    helper.register(mekanismId, mechanicEntry);
+                    LOGGER.info("Registered mekanism building entry as a local copy of the MineColonies mechanic hut.");
+                }
+            });
         });
     }
 
