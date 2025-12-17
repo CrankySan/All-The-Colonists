@@ -1,39 +1,31 @@
 package com.allthecolonists.core;
 
-import org.slf4j.Logger;
-
-import com.allthecolonists.core.colony.buildings.workerbuildings.BuildingMekanismWorker;
 import com.allthecolonists.core.registry.ModBlocks;
+import com.allthecolonists.core.registry.ModHuts;
 import com.allthecolonists.core.registry.ModItems;
+import com.allthecolonists.core.registry.ModJobs;
 import com.mojang.logging.LogUtils;
-import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
-import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
 import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
-
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.RegisterEvent;
-
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.slf4j.Logger;
 
 @Mod(AllTheColonists.MODID)
-public class AllTheColonists {
-
+public class AllTheColonists
+{
     public static final String MODID = "allthecolonists";
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -52,66 +44,45 @@ public class AllTheColonists {
                     .build()
             );
 
-    public AllTheColonists(IEventBus modEventBus, ModContainer modContainer) {
-
-        // BLOCKS + ITEMS aus ModBlocks registrieren
+    public AllTheColonists(final IEventBus modEventBus, final ModContainer modContainer)
+    {
+        // Core registries
         ModBlocks.register(modEventBus);
-
-        // Items registrieren
         ModItems.register(modEventBus);
+        ModJobs.register(modEventBus);
+        ModHuts.register(modEventBus);
 
-        // Creative Tabs registrieren
+        // Creative tabs
         CREATIVE_MODE_TABS.register(modEventBus);
 
         // Events
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::onRegisterBlockEntityValidBlocks);
-        modEventBus.addListener(this::registerBuildingEntries);
 
         NeoForge.EVENT_BUS.register(this);
 
-        LOGGER.info("AllTheColonists wurde initialisiert!");
+        LOGGER.info("AllTheColonists initialized");
     }
 
-    private void registerBuildingEntries(RegisterEvent event) {
-        event.register(IBuildingRegistry.getInstance().key(), helper -> {
-            var registry = IBuildingRegistry.getInstance();
-            ResourceLocation mekanismId = ResourceLocation.fromNamespaceAndPath(MODID, "mekanism");
-            ResourceLocation mechanicId = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
-
-            registry.getOptional(mechanicId).ifPresent(mechanicEntry -> {
-                if (registry.containsKey(mekanismId)) {
-                    return;
-                }
-
-                var builder = new BuildingEntry.Builder();
-                builder.setRegistryName(mekanismId);
-                builder.setBuildingBlock(ModBlocks.BLOCKHUTMEKANISM.get());
-                builder.setBuildingProducer((colony, pos) -> new BuildingMekanismWorker(colony, pos));
-                builder.setBuildingViewProducer(() -> mechanicEntry::produceBuildingView);
-
-                mechanicEntry.getModuleProducers().stream()
-                        .filter(producer -> !producer.key.contains("cutter"))
-                        .forEach(builder::addBuildingModuleProducer);
-
-                helper.register(mekanismId, builder.createBuildingEntry());
-                LOGGER.info("Registered mekanism building entry using mekanism hut block and mechanic modules (cutter excluded).");
-            });
-        });
+    private void onRegisterBlockEntityValidBlocks(final BlockEntityTypeAddBlocksEvent event)
+    {
+        event.modify(
+                MinecoloniesTileEntities.BUILDING.get(),
+                ModBlocks.BLOCKHUTMEKANISM.get()
+        );
     }
 
-    private void onRegisterBlockEntityValidBlocks(BlockEntityTypeAddBlocksEvent event) {
-        event.modify(MinecoloniesTileEntities.BUILDING.get(), ModBlocks.BLOCKHUTMEKANISM.get());
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+    private void addCreative(final BuildCreativeModeTabContentsEvent event)
+    {
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+        {
             event.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM);
         }
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("Server Starting Event empfangen!");
+    public void onServerStarting(final ServerStartingEvent event)
+    {
+        LOGGER.info("Server Starting Event received");
     }
 }
