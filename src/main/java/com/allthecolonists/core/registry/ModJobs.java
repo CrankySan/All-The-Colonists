@@ -13,14 +13,23 @@ public final class ModJobs
 {
     private ModJobs() {}
 
-    public static final DeferredRegister<JobEntry> JOBS =
-            DeferredRegister.create(
+    public static void register(final IEventBus bus)
+    {
+        try
+        {
+            final DeferredRegister<JobEntry> jobs = DeferredRegister.create(
                     IJobRegistry.getInstance().key(),
                     AllTheColonists.MODID
             );
 
-    public static void register(final IEventBus bus)
-    {
-        JOBS.register(bus);
+            jobs.register(bus);
+        }
+        catch (final NullPointerException exception)
+        {
+            AllTheColonists.LOGGER.warn(
+                    "MineColonies job registry unavailable during initialization; skipping job registration."
+            );
+            AllTheColonists.LOGGER.debug("MineColonies API instance lookup failed", exception);
+        }
     }
 }
