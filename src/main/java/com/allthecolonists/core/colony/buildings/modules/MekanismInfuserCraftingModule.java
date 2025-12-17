@@ -13,8 +13,8 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Crafting module for the Mekanism hut.
  *
- * This module provides a single crafting tab for Mekanism Metallurgic Infuser
- * recipes and intentionally does NOT expose any Mechanic / Cutter recipes.
+ * Provides a single GUI tab for Metallurgic Infuser recipes
+ * and enforces machine + energy availability.
  */
 public class MekanismInfuserCraftingModule
         extends AbstractCraftingBuildingModule.Crafting
@@ -32,9 +32,6 @@ public class MekanismInfuserCraftingModule
         super(jobEntry);
     }
 
-    /**
-     * Which recipes this module loads.
-     */
     @NotNull
     @Override
     public ResourceLocation getRecipeKey()
@@ -42,9 +39,6 @@ public class MekanismInfuserCraftingModule
         return RECIPE_KEY;
     }
 
-    /**
-     * Tab title shown in the hut GUI.
-     */
     @NotNull
     @Override
     public Component getDisplayName()
@@ -54,13 +48,6 @@ public class MekanismInfuserCraftingModule
         );
     }
 
-    /**
-     * Ingredient filter.
-     *
-     * We intentionally allow all items here.
-     * Validation of machine presence (Metallurgic Infuser)
-     * is handled in canCraftRecipe().
-     */
     @NotNull
     @Override
     public OptionalPredicate<ItemStack> getIngredientValidator()
@@ -68,10 +55,6 @@ public class MekanismInfuserCraftingModule
         return OptionalPredicate.ALWAYS_TRUE;
     }
 
-    /**
-     * Final compatibility check for recipes.
-     * Only accept recipes that belong to our crafter key.
-     */
     @Override
     public boolean isRecipeCompatible(@NotNull final IGenericRecipe recipe)
     {
@@ -79,12 +62,9 @@ public class MekanismInfuserCraftingModule
     }
 
     /**
-     * 2.3 – Machine + Energy check.
-     *
-     * A recipe is only craftable if:
-     * - the building has at least level 1
-     * - a Metallurgic Infuser exists in the hut
-     * - the Infuser has FE energy
+     * Enforces:
+     * - building level >= 1
+     * - at least one powered Metallurgic Infuser in the hut
      */
     @Override
     public boolean canCraftRecipe(@NotNull final IGenericRecipe recipe)
@@ -94,11 +74,9 @@ public class MekanismInfuserCraftingModule
             return false;
         }
 
-        return building.getPosition()
-                .map(pos -> MekanismMachineHelper.hasPoweredInfuser(
-                        building.getColony().getWorld(),
-                        pos
-                ))
-                .orElse(false);
+        return MekanismMachineHelper.hasPoweredInfuser(
+                building.getColony().getWorld(),
+                building.getBuildingLevelPositions()
+        );
     }
 }
