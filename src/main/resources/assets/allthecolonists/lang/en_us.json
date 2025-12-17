@@ -4,12 +4,12 @@
   "block.allthecolonists.blockhutmekanism.name": "Mekanism Hut",
   "item.allthecolonists.blockhutmekanism": "Mekanism Hut",
   "item.allthecolonists.void_icon": "Void Icon",
-  "com.allthecolonists.coremod.jei.mekanist": "Crafts Mekanism Alloys and Circuits",
-  "com.allthecolonists.building.mekanist.desc": "Crafts Alloys and Circuits and handles unique recipes",
-  "com.allthecolonists.coremod.job.mekanist": "Mekanism Worker",
-  "com.allthecolonists.job.mekanist": "Mekanism Worker",
-  "com.minecolonies.building.mekanist": "Mekanism Hut",
-  "com.minecolonies.coremod.jei.mekanist": "Crafts Mekanism Alloys and Circuits",
-  "com.minecolonies.coremod.job.mekanist": "Mekanism Worker",
-  "com.minecolonies.job.mekanist": "Mekanism Worker"
+  "com.allthecolonists.coremod.jei.mekanism": "Crafts Mekanism Alloys and Circuits",
+  "com.allthecolonists.building.mekanism.desc": "Crafts Alloys and Circuits and handles unique recipes",
+  "com.allthecolonists.coremod.job.mekanism": "Mekanism Worker",
+  "com.allthecolonists.job.mekanism": "Mekanism Worker",
+  "com.minecolonies.building.mekanism": "Mekanism Hut",
+  "com.minecolonies.coremod.jei.mekanism": "Crafts Mekanism Alloys and Circuits",
+  "com.minecolonies.coremod.job.mekanism": "Mekanism Worker",
+  "com.minecolonies.job.mekanism": "Mekanism Worker"
 }

@@ -18,6 +18,6 @@ public class BuildingMekanismWorker extends BuildingMechanic {
     public String getSchematicName() {
         // Reuse the mechanic schematics so the hut always finds valid
         // blueprints and stays attached to the colony after reopening.
-        return "mekanist";
+        return "mekanism";
     }
 }
