@@ -1,5 +1,6 @@
 package com.allthecolonists.core.blocks.custom;
 
+import com.allthecolonists.core.AllTheColonists;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.colony.buildings.registry.IBuildingRegistry;
 import com.minecolonies.core.blocks.huts.BlockHutMechanic;
@@ -17,25 +18,15 @@ import net.minecraft.resources.ResourceLocation;
  */
 public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
-    private static final ResourceLocation MECHANIC_ENTRY = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
+    private static final ResourceLocation MEKANISM_ENTRY = ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism");
 
     @Override
     public String getHutName() {
-        // Reuse the vanilla mechanic hut identifier so MineColonies loads the
-        // correct building view and GUI definitions. Returning the custom
-        // "mekanism" id here causes MineColonies to fall back to the generic
-        // placeholder window, leaving the building reference null and
-        // crashing the hire worker screen when the player clicks "Assign
-        // Worker". By reporting the mechanic hut name, we piggyback on the
-        // existing window XML and avoid the null building view while still
-        // keeping the Mekanism-specific block/item assets.
-        return "mechanic";
+        return "mekanism";
     }
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        // Reuse the mechanist registration from MineColonies to inherit all UI
-        // wiring, crafting modules and AI logic.
-        return IBuildingRegistry.getInstance().get(MECHANIC_ENTRY);
+        return IBuildingRegistry.getInstance().get(MEKANISM_ENTRY);
     }
 }
