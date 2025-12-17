@@ -19,6 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
     private static final ResourceLocation MEKANISM_ENTRY = ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism");
+    private static final ResourceLocation MECHANIC_ENTRY = ResourceLocation.fromNamespaceAndPath("minecolonies", "mechanic");
 
     @Override
     public String getHutName() {
@@ -27,6 +28,10 @@ public class MekanismWorkerHutBlock extends BlockHutMechanic {
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        return IBuildingRegistry.getInstance().get(MEKANISM_ENTRY);
+        var registry = IBuildingRegistry.getInstance();
+        return registry
+                .getOptional(MEKANISM_ENTRY)
+                .or(() -> registry.getOptional(MECHANIC_ENTRY))
+                .orElse(null);
     }
 }
