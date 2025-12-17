@@ -24,7 +24,7 @@ public class MekanismWorkerHutBlock extends BlockHutMechanic {
         // Return the Mekanism hut name so the blueprint and translations map
         // to the Mekanism-specific assets while still reusing the mechanic
         // building entry for functionality.
-        return "mekanist";
+        return "mekanism";
     }
 
     @Override
