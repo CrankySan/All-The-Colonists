@@ -6,6 +6,12 @@ import com.allthecolonists.core.init.ModBuildingEntries;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
+import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.fml.util.ObfuscationReflectionHelper;
+import java.util.HashSet;
+import java.util.Set;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -70,6 +76,28 @@ public class AllTheColonists {
      */
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(ModBuildingEntries::init);
+        event.enqueueWork(() -> {
+            final BlockEntityType<?> buildingType = MinecoloniesTileEntities.BUILDING.get();
+            final var validBlocks = ObfuscationReflectionHelper.<Set<Block>, BlockEntityType<?>>getPrivateValue(
+                    BlockEntityType.class,
+                    buildingType,
+                    "validBlocks"
+            );
+
+            if (validBlocks == null) {
+                LOGGER.warn("Konnte MineColonies gültige Blöcke nicht erweitern – Mekanism-Hütte fehlt eventuell.");
+                return;
+            }
+
+            final Set<Block> expandedBlocks = new HashSet<>(validBlocks);
+            expandedBlocks.add(ModBlocks.MEKANISM_HUT.get());
+            ObfuscationReflectionHelper.setPrivateValue(
+                    BlockEntityType.class,
+                    buildingType,
+                    expandedBlocks,
+                    "validBlocks"
+            );
+        });
         LOGGER.info("Common Setup läuft für AllTheColonists...");
     }
 
