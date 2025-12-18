@@ -49,15 +49,13 @@ public class AllTheColonists {
             CREATIVE_MODE_TABS.register(
                     "colonists_tab",
                     () -> CreativeModeTab.builder()
-                            .title(Component.translatable("itemGroup.AllTheColonists"))
+                            .title(Component.translatable("itemGroup.allthecolonists"))
                             .withTabsBefore(CreativeModeTabs.COMBAT)
                             .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
                             .displayItems((parameters, output) -> {
-
-    if (parameters.hasPermissions()) {
-        output.accept(ModItems.MEKANISM_HUT_ITEM.get());
-    }
-})
+                                // 🔥 KEIN Permission-Filter → immer sichtbar
+                                output.accept(ModItems.MEKANISM_HUT_ITEM.get());
+                            })
                             .build()
             );
 
@@ -113,7 +111,7 @@ public class AllTheColonists {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // KEINE Hütten in Vanilla-Tabs einfügen!
+        // Bewusst leer – Hütten erscheinen NUR im eigenen Tab
     }
 
     @SubscribeEvent
