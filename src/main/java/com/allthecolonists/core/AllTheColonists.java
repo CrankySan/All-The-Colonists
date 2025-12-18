@@ -53,6 +53,7 @@ public class AllTheColonists {
 
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBuildingEntries.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

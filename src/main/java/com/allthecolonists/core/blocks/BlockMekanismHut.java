@@ -13,7 +13,7 @@ public class BlockMekanismHut extends AbstractBlockHut {
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        return ModBuildingEntries.MEKANISM_HUT;
+        return ModBuildingEntries.MEKANISM_HUT.get();
     }
 
     @Override
