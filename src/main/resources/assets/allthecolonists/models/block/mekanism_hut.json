@@ -1,6 +1,6 @@
 {
   "credit": "Made with Blockbench",
-  "parent": "minecraft:block/cross",
+  "parent": "minecraft:block/cube_all",
   "textures": {
     "particle": "block/black_concrete",
     "wood": "block/black_concrete",

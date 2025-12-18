@@ -3,19 +3,21 @@ package com.allthecolonists.core.blocks;
 import com.allthecolonists.core.init.ModBuildingEntries;
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
-import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
-public class BlockMekanismHut extends AbstractBlockHut
-{
+public class BlockMekanismHut extends AbstractBlockHut {
+
+    public BlockMekanismHut(BlockBehaviour.Properties properties) {
+        super(properties);
+    }
+
     @Override
-    public BuildingEntry getBuildingEntry()
-    {
+    public BuildingEntry getBuildingEntry() {
         return ModBuildingEntries.MEKANISM_HUT;
     }
 
     @Override
-    public Component getHutName()
-    {
-        return Component.translatable("hut.allthecolonists.mekanism");
+    public String getHutName() {
+        return "hut.allthecolonists.mekanism";
     }
 }

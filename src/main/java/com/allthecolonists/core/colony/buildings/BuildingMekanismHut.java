@@ -1,20 +1,19 @@
 package com.allthecolonists.core.colony.buildings;
 
-import com.allthecolonists.core.init.ModBuildingEntries;
 import com.minecolonies.api.colony.IColony;
-import com.minecolonies.api.colony.buildings.AbstractBuildingBase;
+import com.minecolonies.core.colony.buildings.AbstractBuilding;
 import net.minecraft.core.BlockPos;
 
-public class BuildingMekanismHut extends AbstractBuildingBase
+public class BuildingMekanismHut extends AbstractBuilding
 {
-    public BuildingMekanismHut(final IColony colony, final BlockPos pos)
+    public BuildingMekanismHut(IColony colony, BlockPos pos)
     {
-        super(ModBuildingEntries.MEKANISM_HUT, colony, pos);
+        super(colony, pos);
     }
 
-    @Override
-    public int getMaxBuildingLevel()
-    {
-        return 5;
-    }
+@Override
+public String getSchematicName()
+{
+    return "mekanism_hut";
+}
 }

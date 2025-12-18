@@ -1,0 +1,5 @@
+{
+  "name": "mekanist",
+  "worker": "minecolonies:citizen",
+  "hut": "allthecolonists:mekanism_hut"
+}
