@@ -17,7 +17,7 @@ public class BlockMekanismHut extends AbstractBlockHut {
 
     @Override
     public BuildingEntry getBuildingEntry() {
-        // 🔥 KORREKT für MineColonies 1.21.x
+        // KORREKT für MineColonies 1.21.x
         return ModBuildings.getInstance().getBuilding(ID);
     }
 
