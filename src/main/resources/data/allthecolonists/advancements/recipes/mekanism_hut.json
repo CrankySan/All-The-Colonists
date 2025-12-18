@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "tick": { "trigger": "minecraft:tick" }
+  },
+  "rewards": {
+    "recipes": [
+      "allthecolonists:mekanism_hut"
+    ]
+  }
+}
