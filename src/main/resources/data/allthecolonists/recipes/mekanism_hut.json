@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "pattern": [
     "RSR",
     "IMI",
@@ -14,7 +13,7 @@
     "C": { "item": "minecraft:copper_ingot" }
   },
   "result": {
-    "item": "allthecolonists:mekanism_hut",
+    "id": "allthecolonists:mekanism_hut",
     "count": 1
   }
 }
