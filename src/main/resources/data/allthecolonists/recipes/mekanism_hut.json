@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "conditions": [
-    { "type": "neoforge:mod_loaded", "modid": "mekanism" },
-    { "type": "neoforge:mod_loaded", "modid": "structurize" }
-  ],
   "pattern": [
     "RSR",
     "IMI",
@@ -11,13 +7,13 @@
   ],
   "key": {
     "R": { "item": "minecraft:redstone" },
-    "S": { "item": "structurize:sceptergold" },
+    "S": { "item": "minecraft:stick" },
     "I": { "item": "minecraft:iron_ingot" },
-    "M": { "item": "mekanism:metallurgic_infuser" },
+    "M": { "item": "minecraft:furnace" },
     "C": { "item": "minecraft:copper_ingot" }
   },
   "result": {
-    "id": "allthecolonists:mekanism_hut",
+    "item": "allthecolonists:mekanism_hut",
     "count": 1
   }
 }

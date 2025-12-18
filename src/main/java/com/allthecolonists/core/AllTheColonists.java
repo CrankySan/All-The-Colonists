@@ -53,8 +53,11 @@ public class AllTheColonists {
                             .withTabsBefore(CreativeModeTabs.COMBAT)
                             .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
                             .displayItems((parameters, output) -> {
-                                // bewusst leer – Hütten NICHT in Vanilla-Tabs
-                            })
+
+    if (parameters.hasPermissions()) {
+        output.accept(ModItems.MEKANISM_HUT_ITEM.get());
+    }
+})
                             .build()
             );
 
