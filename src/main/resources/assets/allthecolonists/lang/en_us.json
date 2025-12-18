@@ -1,8 +1,8 @@
 {
   "itemGroup.AllTheColonists": "All The Colonists",
-  "block.allthecolonists.blockhutmekanism": "Mekanism Hut",
-  "block.allthecolonists.blockhutmekanism.name": "Mekanism Hut",
-  "item.allthecolonists.blockhutmekanism": "Mekanism Hut",
+  "block.allthecolonists.mekanism_hut": "Mekanism Hut",
+  "block.allthecolonists.mekanism_hut.name": "Mekanism Hut",
+  "item.allthecolonists.mekanism_hut": "Mekanism Hut",
   "item.allthecolonists.void_icon": "Void Icon",
   "com.allthecolonists.coremod.jei.mekanist": "Crafts Mekanism Alloys and Circuits",
   "com.allthecolonists.building.mekanist.desc": "Crafts Alloys and Circuits and handles unique recipes",

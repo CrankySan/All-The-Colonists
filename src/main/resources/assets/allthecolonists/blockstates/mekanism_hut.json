@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "allthecolonists:block/mekanism_hut" },
+    "facing=south": { "model": "allthecolonists:block/mekanism_hut", "y": 180 },
+    "facing=west":  { "model": "allthecolonists:block/mekanism_hut", "y": 270 },
+    "facing=east":  { "model": "allthecolonists:block/mekanism_hut", "y": 90 }
+  }
+}

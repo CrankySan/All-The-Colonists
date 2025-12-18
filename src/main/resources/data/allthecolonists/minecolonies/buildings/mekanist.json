@@ -1,0 +1,7 @@
+{
+  "name": "mekanist",
+  "style": "void",
+  "type": "craftsmanship",
+  "buildingClass": "com.minecolonies.core.colony.buildings.workerbuildings.BuildingMechanic",
+  "maxLevel": 5
+}

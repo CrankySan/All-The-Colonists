@@ -2,9 +2,19 @@ package com.allthecolonists.core;
 
 import org.slf4j.Logger;
 
+import com.allthecolonists.core.init.ModBuildingEntries;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
+import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+
+import net.neoforged.fml.util.ObfuscationReflectionHelper;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -15,9 +25,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
-
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.neoforged.neoforge.common.NeoForge;
@@ -38,28 +46,25 @@ public class AllTheColonists {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> COLONISTS_TAB =
-            CREATIVE_MODE_TABS.register("colonists_tab", () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.AllTheColonists"))
-                    .withTabsBefore(CreativeModeTabs.COMBAT)
-                    .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
-                    .displayItems((parameters, output) -> {
-                        output.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM.get());
-                    })
-                    .build()
+            CREATIVE_MODE_TABS.register(
+                    "colonists_tab",
+                    () -> CreativeModeTab.builder()
+                            .title(Component.translatable("itemGroup.AllTheColonists"))
+                            .withTabsBefore(CreativeModeTabs.COMBAT)
+                            .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
+                            .displayItems((parameters, output) -> {
+                                // bewusst leer – Hütten NICHT in Vanilla-Tabs
+                            })
+                            .build()
             );
 
     public AllTheColonists(IEventBus modEventBus, ModContainer modContainer) {
 
-        // BLOCKS + ITEMS aus ModBlocks registrieren
         ModBlocks.register(modEventBus);
-
-        // Items registrieren
         ModItems.register(modEventBus);
-
-        // Creative Tabs registrieren
+        ModBuildingEntries.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
-        // Events
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
 
@@ -68,14 +73,44 @@ public class AllTheColonists {
         LOGGER.info("AllTheColonists wurde initialisiert!");
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
+    /**
+     * EXTREM WICHTIG FÜR MINECOLONIES
+     * Ohne diesen Block crasht oder erkennt MineColonies den Hut NICHT.
+     */
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(ModBuildingEntries::init);
+        event.enqueueWork(() -> {
+            final BlockEntityType<?> buildingType = MinecoloniesTileEntities.BUILDING.get();
+
+            final Set<Block> validBlocks =
+                    ObfuscationReflectionHelper.<Set<Block>, BlockEntityType<?>>getPrivateValue(
+                            BlockEntityType.class,
+                            buildingType,
+                            "validBlocks"
+                    );
+
+            if (validBlocks == null) {
+                LOGGER.warn("Konnte MineColonies gültige Blöcke nicht erweitern – Mekanism-Hütte fehlt eventuell.");
+                return;
+            }
+
+            // Defensive Copy – MineColonies nutzt teilweise immutable Sets
+            final Set<Block> expandedBlocks = new HashSet<>(validBlocks);
+            expandedBlocks.add(ModBlocks.MEKANISM_HUT.get());
+
+            ObfuscationReflectionHelper.setPrivateValue(
+                    BlockEntityType.class,
+                    buildingType,
+                    expandedBlocks,
+                    "validBlocks"
+            );
+        });
+
         LOGGER.info("Common Setup läuft für AllTheColonists...");
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.BLOCKHUTMEKANISM_ITEM);
-        }
+        // KEINE Hütten in Vanilla-Tabs einfügen!
     }
 
     @SubscribeEvent
