@@ -2,7 +2,6 @@ package com.allthecolonists.core;
 
 import org.slf4j.Logger;
 
-import com.allthecolonists.core.init.ModBuildingEntries;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
@@ -32,7 +31,6 @@ public class AllTheColonists {
     public static final String MODID = "allthecolonists";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // -------- CREATIVE TAB REGISTER --------
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
@@ -43,9 +41,7 @@ public class AllTheColonists {
                             .title(Component.translatable("itemGroup.AllTheColonists"))
                             .withTabsBefore(CreativeModeTabs.COMBAT)
                             .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
-                            .displayItems((parameters, output) -> {
-                                // bewusst leer – Hütten NICHT in Vanilla-Tabs
-                            })
+                            .displayItems((p, o) -> {})
                             .build()
             );
 
@@ -59,25 +55,13 @@ public class AllTheColonists {
         modEventBus.addListener(this::addCreative);
 
         NeoForge.EVENT_BUS.register(this);
-
-        LOGGER.info("AllTheColonists wurde initialisiert!");
+        LOGGER.info("AllTheColonists initialisiert");
     }
 
-    /**
-     * EXTREM WICHTIG FÜR MINECOLONIES
-     * Ohne diesen Block crasht oder erkennt MineColonies den Hut NICHT.
-     */
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(ModBuildingEntries::init);
-        LOGGER.info("Common Setup läuft für AllTheColonists...");
-    }
+    private void commonSetup(final FMLCommonSetupEvent event) {}
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // KEINE Hütten in Vanilla-Tabs einfügen!
-    }
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {}
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("Server Starting Event empfangen!");
-    }
+    public void onServerStarting(ServerStartingEvent event) {}
 }
