@@ -49,7 +49,7 @@ public class AllTheColonists {
             CREATIVE_MODE_TABS.register(
                     "colonists_tab",
                     () -> CreativeModeTab.builder()
-                            .title(Component.translatable("itemGroup.AllTheColonists"))
+                            .title(Component.translatable("itemGroup.allthecolonists"))
                             .withTabsBefore(CreativeModeTabs.COMBAT)
                             .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
                             .displayItems((parameters, output) -> {
