@@ -1,5 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
+  "conditions": [
+    { "type": "neoforge:mod_loaded", "modid": "mekanism" },
+    { "type": "neoforge:mod_loaded", "modid": "structurize" }
+  ],
   "pattern": [
     "RSR",
     "IMI",
