@@ -18,7 +18,7 @@ public class ModItems {
 
     // 🔴 KRITISCH WICHTIG 🔴
     // BlockItem für den Hut
-    public static final DeferredItem<Item> MEKANISM_HUT_ITEM =
+    public static final DeferredItem<BlockItem> MEKANISM_HUT_ITEM =
             ITEMS.register(
                     "mekanism_hut",
                     () -> new BlockItem(ModBlocks.MEKANISM_HUT.get(), new Item.Properties())
