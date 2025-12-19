@@ -1,39 +1,30 @@
 package com.allthecolonists.core;
 
-import org.slf4j.Logger;
-
-import com.allthecolonists.core.init.ModBuildingEntries;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.mojang.logging.LogUtils;
 import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
-
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-
-import net.neoforged.fml.util.ObfuscationReflectionHelper;
-
-import java.util.HashSet;
-import java.util.Set;
-
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.fml.util.ObfuscationReflectionHelper;
+import org.slf4j.Logger;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Mod(AllTheColonists.MODID)
 public class AllTheColonists {
@@ -41,81 +32,85 @@ public class AllTheColonists {
     public static final String MODID = "allthecolonists";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // -------- CREATIVE TAB REGISTER --------
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+    /* ---------------- CREATIVE TAB ---------------- */
+
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> COLONISTS_TAB =
-            CREATIVE_MODE_TABS.register(
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN_TAB =
+            CREATIVE_TABS.register(
                     "colonists_tab",
                     () -> CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.allthecolonists"))
                             .withTabsBefore(CreativeModeTabs.COMBAT)
                             .icon(() -> ModItems.VOID_ICON.get().getDefaultInstance())
-                            .displayItems((parameters, output) -> {
-                                // 🔥 KEIN Permission-Filter → immer sichtbar
-                                output.accept(ModItems.MEKANISM_HUT_ITEM.get());
+                            .displayItems((params, output) -> {
+                                output.accept(ModItems.MEKANIST_HUT_ITEM.get());
                             })
                             .build()
             );
 
-    public AllTheColonists(IEventBus modEventBus, ModContainer modContainer) {
+    /* ---------------- MOD INIT ---------------- */
 
-        ModBlocks.register(modEventBus);
-        ModItems.register(modEventBus);
-        ModBuildingEntries.register(modEventBus);
-        CREATIVE_MODE_TABS.register(modEventBus);
+    public AllTheColonists(final IEventBus modEventBus, final ModContainer container) {
 
+        // Registries
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
+        CREATIVE_TABS.register(modEventBus);
+
+        // Lifecycle
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(this::onBuildCreativeTab);
 
         NeoForge.EVENT_BUS.register(this);
 
-        LOGGER.info("AllTheColonists wurde initialisiert!");
+        LOGGER.info("AllTheColonists initialized");
     }
 
-    /**
-     * EXTREM WICHTIG FÜR MINECOLONIES
-     * Ohne diesen Block crasht oder erkennt MineColonies den Hut NICHT.
-     */
+    /* ---------------- COMMON SETUP ---------------- */
+
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(ModBuildingEntries::init);
+
         event.enqueueWork(() -> {
             final BlockEntityType<?> buildingType = MinecoloniesTileEntities.BUILDING.get();
 
             final Set<Block> validBlocks =
-                    ObfuscationReflectionHelper.<Set<Block>, BlockEntityType<?>>getPrivateValue(
+                    ObfuscationReflectionHelper.getPrivateValue(
                             BlockEntityType.class,
                             buildingType,
                             "validBlocks"
                     );
 
             if (validBlocks == null) {
-                LOGGER.warn("Konnte MineColonies gültige Blöcke nicht erweitern – Mekanism-Hütte fehlt eventuell.");
+                LOGGER.warn("MineColonies BUILDING TileEntity validBlocks not accessible");
                 return;
             }
 
-            // Defensive Copy – MineColonies nutzt teilweise immutable Sets
-            final Set<Block> expandedBlocks = new HashSet<>(validBlocks);
-            expandedBlocks.add(ModBlocks.MEKANISM_HUT.get());
+            final Set<Block> expanded = new HashSet<>(validBlocks);
+            expanded.add(ModBlocks.MEKANIST_HUT.get());
 
             ObfuscationReflectionHelper.setPrivateValue(
                     BlockEntityType.class,
                     buildingType,
-                    expandedBlocks,
+                    expanded,
                     "validBlocks"
             );
+
+            LOGGER.info("Mekanist hut registered as valid MineColonies building block");
         });
-
-        LOGGER.info("Common Setup läuft für AllTheColonists...");
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // Bewusst leer – Hütten erscheinen NUR im eigenen Tab
+    /* ---------------- CREATIVE TAB EVENT ---------------- */
+
+    private void onBuildCreativeTab(final BuildCreativeModeTabContentsEvent event) {
+        // intentionally empty – items are added via tab definition
     }
+
+    /* ---------------- SERVER EVENT ---------------- */
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("Server Starting Event empfangen!");
+    public void onServerStarting(final ServerStartingEvent event) {
+        LOGGER.info("Server starting with AllTheColonists loaded");
     }
 }

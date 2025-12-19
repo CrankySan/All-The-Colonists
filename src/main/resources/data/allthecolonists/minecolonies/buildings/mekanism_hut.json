@@ -1,0 +1,11 @@
+{
+  "name": "mekanism_hut",
+  "type": "hut",
+  "block": "allthecolonists:mekanism_hut",
+  "job": "allthecolonists:mekanist",
+  "icon": "allthecolonists:mekanism_hut",
+  "tier": 5,
+  "schematic": "mekanism_hut",
+  "research": "allthecolonists:mekanism_hut",
+  "guardType": "none"
+}

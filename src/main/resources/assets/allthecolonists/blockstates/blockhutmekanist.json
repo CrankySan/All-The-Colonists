@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "allthecolonists:block/blockhutmekanist",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "allthecolonists:block/blockhutmekanist",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "allthecolonists:block/blockhutmekanist",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "allthecolonists:block/blockhutmekanist",
+      "y": 0
+    }
+  }
+}
