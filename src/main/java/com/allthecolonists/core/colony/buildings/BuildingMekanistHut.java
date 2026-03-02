@@ -8,6 +8,7 @@ import com.minecolonies.core.colony.buildings.modules.AbstractCraftingBuildingMo
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -28,14 +29,13 @@ public class BuildingMekanistHut extends AbstractBuilding {
     }
 
     /**
-     * Crafting module that only allows teaching the Infused Alloy recipe.
-     * Uses the vanilla 3×3 crafting grid; only accepts recipes whose output
-     * is {@code mekanism:infused_alloy}.
+     * Crafting module for Mekanism Metallurgic Infuser recipes.
+     * Recipes whose intermediate block is the Metallurgic Infuser are accepted.
      */
     public static class InfuserCraftingModule extends AbstractCraftingBuildingModule.Crafting {
 
-        private static final ResourceLocation INFUSED_ALLOY_ID =
-                ResourceLocation.fromNamespaceAndPath("mekanism", "infused_alloy");
+        private static final ResourceLocation METALLURGIC_INFUSER_ID =
+                ResourceLocation.fromNamespaceAndPath("mekanism", "metallurgic_infuser");
 
         public InfuserCraftingModule(final JobEntry jobEntry) {
             super(jobEntry);
@@ -43,10 +43,9 @@ public class BuildingMekanistHut extends AbstractBuilding {
 
         @Override
         public boolean isRecipeCompatible(@NotNull final IGenericRecipe recipe) {
-            if (!super.isRecipeCompatible(recipe)) return false; // must be a vanilla crafting recipe
-            final var output = recipe.getPrimaryOutput();
-            if (output.isEmpty()) return false;
-            return INFUSED_ALLOY_ID.equals(BuiltInRegistries.ITEM.getKey(output.getItem()));
+            final var intermediate = recipe.getIntermediate();
+            if (intermediate == null || intermediate == Blocks.AIR) return false;
+            return METALLURGIC_INFUSER_ID.equals(BuiltInRegistries.BLOCK.getKey(intermediate));
         }
 
         @NotNull
