@@ -2,7 +2,7 @@ package com.allthecolonists.core.init;
 
 import com.allthecolonists.core.AllTheColonists;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
-import com.minecolonies.core.colony.jobs.JobMechanic;
+import com.allthecolonists.core.colony.jobs.JobMekanist;
 import com.minecolonies.core.colony.jobs.views.CrafterJobView;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -25,7 +25,7 @@ public final class ModJobEntries {
      */
     public static final DeferredHolder<JobEntry, JobEntry> MEKANIST =
             JOBS.register("mekanist", () -> new JobEntry.Builder()
-                    .setJobProducer(JobMechanic::new)
+                    .setJobProducer(JobMekanist::new)
                     .setJobViewProducer(() -> CrafterJobView::new)
                     .setRegistryName(ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanist"))
                     .createJobEntry()
