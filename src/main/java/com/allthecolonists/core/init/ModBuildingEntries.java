@@ -8,8 +8,8 @@ import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
 import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.entity.citizen.Skill;
-import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModule;
 import com.minecolonies.core.colony.buildings.modules.BuildingModules;
+import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModule;
 import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import net.minecraft.resources.ResourceLocation;
@@ -45,11 +45,17 @@ public final class ModBuildingEntries
                     () -> CraftingModuleView::new
             );
 
-
-
     /** Request-task tab for crafter jobs – shows crafting tasks/queue. */
     public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_TASKS =
             BuildingModules.CRAFT_TASK_VIEW;
+
+    /** Recipe settings tab (mirrors MineColonies mechanic hut behavior). */
+    public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_SETTINGS =
+            BuildingModules.SETTINGS_CRAFTER_RECIPE;
+
+    /** Building statistics tab. */
+    public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_STATS =
+            BuildingModules.STATS_MODULE;
 
     public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
             BUILDINGS.register(
@@ -62,6 +68,8 @@ public final class ModBuildingEntries
                             .addBuildingModuleProducer(MEKANIST_WORK)
                             .addBuildingModuleProducer(MEKANIST_INFUSER_CRAFT)
                             .addBuildingModuleProducer(MEKANIST_TASKS)
+                            .addBuildingModuleProducer(MEKANIST_SETTINGS)
+                            .addBuildingModuleProducer(MEKANIST_STATS)
                             .createBuildingEntry()
             );
 
