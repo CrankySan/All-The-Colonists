@@ -51,7 +51,7 @@ public class BuildingMekanistHut extends AbstractBuilding {
         @NotNull
         @Override
         public String getId() {
-            return "crafting";
+            return "mekanist_infuser_craft";
         }
     }
 }
