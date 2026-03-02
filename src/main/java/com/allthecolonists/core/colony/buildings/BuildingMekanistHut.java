@@ -31,6 +31,9 @@ public class BuildingMekanistHut extends AbstractBuilding {
     /**
      * Crafting module for Mekanism Metallurgic Infuser recipes.
      * Recipes whose intermediate block is the Metallurgic Infuser are accepted.
+     *
+     * Intentionally based on the generic crafting module (not mechanic-specific crafting),
+     * so Mekanism outputs such as infused alloy can be taught/saved in the hut recipe UI.
      */
     public static class InfuserCraftingModule extends AbstractCraftingBuildingModule.Crafting {
 
@@ -44,7 +47,9 @@ public class BuildingMekanistHut extends AbstractBuilding {
         @Override
         public boolean isRecipeCompatible(@NotNull final IGenericRecipe recipe) {
             final var intermediate = recipe.getIntermediate();
-            if (intermediate == null || intermediate == Blocks.AIR) return false;
+            if (intermediate == null || intermediate == Blocks.AIR) {
+                return false;
+            }
             return METALLURGIC_INFUSER_ID.equals(BuiltInRegistries.BLOCK.getKey(intermediate));
         }
 
