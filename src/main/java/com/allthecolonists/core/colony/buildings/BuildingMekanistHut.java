@@ -34,6 +34,8 @@ public class BuildingMekanistHut extends AbstractBuilding {
      */
     public static class InfuserCraftingModule extends AbstractCraftingBuildingModule.Crafting {
 
+        private static final String MODULE_ID = "mekanist_crafting";
+
         private static final ResourceLocation METALLURGIC_INFUSER_ID =
                 ResourceLocation.fromNamespaceAndPath("mekanism", "metallurgic_infuser");
 
@@ -51,7 +53,7 @@ public class BuildingMekanistHut extends AbstractBuilding {
         @NotNull
         @Override
         public String getId() {
-            return "crafting";
+            return MODULE_ID;
         }
     }
 }
