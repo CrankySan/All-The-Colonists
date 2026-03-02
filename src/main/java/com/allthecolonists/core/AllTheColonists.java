@@ -4,11 +4,14 @@ import com.allthecolonists.core.config.Config;
 import com.allthecolonists.core.init.ModBuildingEntries;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
+import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -20,6 +23,9 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Mod(AllTheColonists.MODID)
 public class AllTheColonists {
@@ -69,7 +75,13 @@ public class AllTheColonists {
     /* ---------------- COMMON SETUP ---------------- */
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // AbstractBlockHut subclasses are registered as valid MineColonies building blocks automatically
+        event.enqueueWork(() -> {
+            final BlockEntityType<?> buildingType = MinecoloniesTileEntities.BUILDING.get();
+            final Set<Block> expanded = new HashSet<>(buildingType.validBlocks);
+            expanded.add(ModBlocks.MEKANISM_HUT.get());
+            buildingType.validBlocks = expanded;
+            LOGGER.info("Registered allthecolonists:mekanism_hut as valid MineColonies building block");
+        });
     }
 
     /* ---------------- SERVER EVENT ---------------- */
