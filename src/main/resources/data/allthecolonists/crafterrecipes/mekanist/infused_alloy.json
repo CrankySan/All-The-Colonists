@@ -1,0 +1,11 @@
+{
+  "type": "recipe",
+  "crafter": "mekanist_crafting",
+  "inputs": [
+    { "item": "minecraft:iron_ingot", "count": 8 },
+    { "item": "minecraft:redstone", "count": 1 }
+  ],
+  "result": "mekanism:infused_alloy",
+  "count": 8,
+  "intermediate": "minecraft:air"
+}
