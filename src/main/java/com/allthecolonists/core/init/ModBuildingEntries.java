@@ -10,6 +10,8 @@ import com.minecolonies.core.colony.buildings.modules.BuildingModules;
 import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModule;
 import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
+import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
+import com.minecolonies.api.colony.buildings.moduleviews.IBuildingModuleView;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -43,6 +45,18 @@ public final class ModBuildingEntries
                     () -> CraftingModuleView::new
             );
 
+    /** Request-task tab for crafter jobs – shows crafting tasks/queue. */
+    public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_TASKS =
+            BuildingModules.CRAFT_TASK_VIEW;
+
+    /** Recipe settings tab (mirrors MineColonies mechanic hut behavior). */
+    public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_SETTINGS =
+            BuildingModules.SETTINGS_CRAFTER_RECIPE;
+
+    /** Building statistics tab. */
+    public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_STATS =
+            BuildingModules.STATS_MODULE;
+
     public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
             BUILDINGS.register(
                     "mekanism_hut",
@@ -53,9 +67,9 @@ public final class ModBuildingEntries
                             .setRegistryName(ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut"))
                             .addBuildingModuleProducer(MEKANIST_WORK)
                             .addBuildingModuleProducer(MEKANIST_INFUSER_CRAFT)
-                            .addBuildingModuleProducer(BuildingModules.CRAFT_TASK_VIEW)
-                            .addBuildingModuleProducer(BuildingModules.SETTINGS_CRAFTER_RECIPE)
-                            .addBuildingModuleProducer(BuildingModules.STATS_MODULE)
+                            .addBuildingModuleProducer(MEKANIST_TASKS)
+                            .addBuildingModuleProducer(MEKANIST_SETTINGS)
+                            .addBuildingModuleProducer(MEKANIST_STATS)
                             .createBuildingEntry()
             );
 
