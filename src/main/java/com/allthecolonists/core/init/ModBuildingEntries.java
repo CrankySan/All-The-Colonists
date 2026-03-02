@@ -11,7 +11,7 @@ import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModu
 import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
-import com.minecolonies.api.colony.buildings.moduleviews.IBuildingModuleView;
+import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
