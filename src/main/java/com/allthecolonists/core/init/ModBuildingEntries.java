@@ -9,6 +9,7 @@ import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.entity.citizen.Skill;
 import com.minecolonies.core.colony.buildings.modules.WorkerBuildingModule;
+import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -35,6 +36,14 @@ public final class ModBuildingEntries
                     () -> WorkerBuildingModuleView::new
             );
 
+    /** Crafting module for Mekanism Metallurgic Infuser recipes – provides the recipe tab. */
+    public static final BuildingEntry.ModuleProducer<BuildingMekanistHut.InfuserCraftingModule, CraftingModuleView> MEKANIST_INFUSER_CRAFT =
+            new BuildingEntry.ModuleProducer<>(
+                    "mekanist_infuser_craft",
+                    () -> new BuildingMekanistHut.InfuserCraftingModule(ModJobEntries.MEKANIST.get()),
+                    () -> CraftingModuleView::new
+            );
+
     public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
             BUILDINGS.register(
                     "mekanism_hut",
@@ -44,6 +53,7 @@ public final class ModBuildingEntries
                             .setBuildingViewProducer(() -> BuildingMekanismHutView::new)
                             .setRegistryName(ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut"))
                             .addBuildingModuleProducer(MEKANIST_WORK)
+                            .addBuildingModuleProducer(MEKANIST_INFUSER_CRAFT)
                             .createBuildingEntry()
             );
 
