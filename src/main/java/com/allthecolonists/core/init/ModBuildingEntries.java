@@ -16,6 +16,9 @@ import com.minecolonies.core.colony.buildings.moduleviews.RequestTaskModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.SettingsModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
+
+import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
+
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
