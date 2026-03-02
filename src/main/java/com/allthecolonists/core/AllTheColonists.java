@@ -2,6 +2,7 @@ package com.allthecolonists.core;
 
 import com.allthecolonists.core.config.Config;
 import com.allthecolonists.core.init.ModBuildingEntries;
+import com.allthecolonists.core.init.ModJobEntries;
 import com.allthecolonists.core.registry.ModBlocks;
 import com.allthecolonists.core.registry.ModItems;
 import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
@@ -60,6 +61,7 @@ public class AllTheColonists {
         ModItems.ITEMS.register(modEventBus);
         CREATIVE_TABS.register(modEventBus);
         ModBuildingEntries.BUILDINGS.register(modEventBus);
+        ModJobEntries.JOBS.register(modEventBus);
 
         // Lifecycle
         modEventBus.addListener(this::commonSetup);
