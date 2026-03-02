@@ -28,6 +28,11 @@ public class BuildingMekanistHut extends AbstractBuilding {
         return "mekanist_hut";
     }
 
+    @Override
+    public int getMaxBuildingLevel() {
+        return 5;
+    }
+
     /**
      * Crafting module for Mekanism Metallurgic Infuser recipes.
      * Recipes whose intermediate block is the Metallurgic Infuser are accepted.

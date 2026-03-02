@@ -5,7 +5,7 @@
   "job": "allthecolonists:mekanist",
   "icon": "allthecolonists:mekanism_hut",
   "tier": 5,
-  "schematic": "mekanist",
+  "schematic": "mekanist_hut",
   "research": "allthecolonists:mekanism_hut",
   "guardType": "none"
 }

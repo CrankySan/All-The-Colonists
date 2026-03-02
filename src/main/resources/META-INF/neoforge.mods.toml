@@ -63,3 +63,10 @@ description='''create your own custom Hut for Minecolonies'''
     versionRange="[1.1.0,)"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies.allthecolonists]]
+    modId="mekanism"
+    type="optional"
+    versionRange="[10.7.0,)"
+    ordering="AFTER"
+    side="BOTH"

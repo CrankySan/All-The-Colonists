@@ -6,8 +6,8 @@
     "#minecolonies:storage_blocks",
     "minecraft:redstone",
     "minecraft:copper_ingot",
-    "mekansim:osmium_ingot",
+    "mekanism:ingot_osmium",
     "minecraft:obsidian",
-    "minecraft:diamond",
+    "minecraft:diamond"
   ]
 }

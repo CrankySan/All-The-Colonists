@@ -1,0 +1,14 @@
+{
+  "itemGroup.allthecolonists": "All The Colonists",
+  "block.allthecolonists.mekanism_hut": "Mekanism Hütte",
+  "item.allthecolonists.mekanism_hut": "Mekanism Hütte",
+  "item.allthecolonists.void_icon": "Void Symbol",
+  "com.allthecolonists.building.mekanism_hut": "Mekanism Hütte",
+  "com.allthecolonists.building.mekanism_hut.desc": "Stellt Mekanism-Legierungen und Schaltkreise her.",
+  "com.allthecolonists.job.mekanist": "Mekanist",
+  "com.allthecolonists.job.mekanist.desc": "Stellt Mekanism-Legierungen und Schaltkreise her.",
+  "hut.allthecolonists.mekanist": "Mekanism Hütte",
+  "configuration.allthecolonists.enableMekanistHut": "Mekanist-Hütte aktivieren",
+  "configuration.allthecolonists.mekanistMaxRecipes": "Maximale Rezepte pro Mekanist",
+  "configuration.allthecolonists.requireMetallurgicInfuser": "Metallurgischen Infuser voraussetzen"
+}

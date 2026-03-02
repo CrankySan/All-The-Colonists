@@ -20,7 +20,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecolonies:blockhutmekanist"
+        "recipe": "allthecolonists:mekanism_hut_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -33,7 +33,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecolonies:blockhutmekanist"
+      "allthecolonists:mekanism_hut_block"
     ]
   },
   "sends_telemetry_event": false

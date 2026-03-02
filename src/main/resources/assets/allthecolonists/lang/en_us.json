@@ -12,5 +12,10 @@
   "com.allthecolonists.job.mekanist": "Mekanist",
   "com.allthecolonists.job.mekanist.desc": "Crafts Mekanism alloys and circuits.",
 
-  "hut.allthecolonists.mekanism": "Mekanism Hut"
+  "hut.allthecolonists.mekanist": "Mekanism Hut",
+
+  "configuration.allthecolonists.enableMekanistHut": "Enable Mekanist Hut",
+  "configuration.allthecolonists.mekanistMaxRecipes": "Max Mekanist Recipes",
+  "configuration.allthecolonists.requireMetallurgicInfuser": "Require Metallurgic Infuser"
+}
 }

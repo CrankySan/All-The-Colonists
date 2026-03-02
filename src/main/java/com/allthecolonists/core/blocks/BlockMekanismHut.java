@@ -15,7 +15,13 @@ public class BlockMekanismHut extends AbstractBlockHut<BlockMekanismHut> {
     @NotNull
     @Override
     public String getHutName() {
-        return "hut.allthecolonists.mekanism";
+        return "mekanist";
+    }
+
+    @NotNull
+    @Override
+    public String getDescriptionId() {
+        return "block.allthecolonists.mekanism_hut";
     }
 
     @Override
