@@ -26,7 +26,7 @@ public final class ModBuildingEntries
     /** Worker-assignment module – provides "Manage Workers" and "Recall Worker" buttons. */
     public static final BuildingEntry.ModuleProducer<WorkerBuildingModule, WorkerBuildingModuleView> MEKANIST_WORK =
             new BuildingEntry.ModuleProducer<>(
-                    "mekanist_work",
+                    "worker",
                     () -> new WorkerBuildingModule(
                             ModJobEntries.MEKANIST.get(),
                             Skill.Knowledge,
@@ -39,7 +39,7 @@ public final class ModBuildingEntries
     /** Crafting module for Mekanism Metallurgic Infuser recipes – provides the recipe tab. */
     public static final BuildingEntry.ModuleProducer<BuildingMekanistHut.InfuserCraftingModule, CraftingModuleView> MEKANIST_INFUSER_CRAFT =
             new BuildingEntry.ModuleProducer<>(
-                    "mekanist_infuser_craft",
+                    "crafting",
                     () -> new BuildingMekanistHut.InfuserCraftingModule(ModJobEntries.MEKANIST.get()),
                     () -> CraftingModuleView::new
             );
