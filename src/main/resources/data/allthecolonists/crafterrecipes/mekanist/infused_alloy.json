@@ -17,11 +17,4 @@
     "id": "mekanism:alloy_infused",
     "count": 1
   }
-=======
-    { "item": "minecraft:redstone", "count": 1 },
-    { "item": "minecraft:copper_ingot", "count": 1 }
-  ],
-  "result": { "id": "mekanism:alloy_infused", "count": 1 },
-  "intermediate": "mekanism:metallurgic_infuser"
-
 }
