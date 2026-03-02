@@ -13,7 +13,7 @@ public final class ModBuildingEntries
 {
     public static final DeferredRegister<BuildingEntry> BUILDINGS =
             DeferredRegister.create(
-                    BuildingEntry.REGISTRY_KEY,
+                    ResourceLocation.fromNamespaceAndPath("minecolonies", "buildings"),
                     AllTheColonists.MODID
             );
 
