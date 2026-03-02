@@ -4,8 +4,6 @@ import com.allthecolonists.core.AllTheColonists;
 import com.allthecolonists.core.colony.buildings.BuildingMekanistHut;
 import com.allthecolonists.core.colony.buildings.views.BuildingMekanismHutView;
 import com.allthecolonists.core.registry.ModBlocks;
-import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
-import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.entity.citizen.Skill;
 import com.minecolonies.core.colony.buildings.modules.WorkerBuildingModule;
@@ -15,18 +13,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public final class ModBuildingEntries
-{
+public final class ModBuildingEntries {
+
     public static final DeferredRegister<BuildingEntry> BUILDINGS =
             DeferredRegister.create(
                     ResourceLocation.fromNamespaceAndPath("minecolonies", "buildings"),
                     AllTheColonists.MODID
             );
 
-    /** Worker-assignment module – provides "Manage Workers" and "Recall Worker" buttons. */
     public static final BuildingEntry.ModuleProducer<WorkerBuildingModule, WorkerBuildingModuleView> MEKANIST_WORK =
             new BuildingEntry.ModuleProducer<>(
-                    "mekanist_work",
+                    "worker",
                     () -> new WorkerBuildingModule(
                             ModJobEntries.MEKANIST.get(),
                             Skill.Knowledge,
@@ -36,10 +33,9 @@ public final class ModBuildingEntries
                     () -> WorkerBuildingModuleView::new
             );
 
-    /** Crafting module for Mekanism Metallurgic Infuser recipes – provides the recipe tab. */
     public static final BuildingEntry.ModuleProducer<BuildingMekanistHut.InfuserCraftingModule, CraftingModuleView> MEKANIST_INFUSER_CRAFT =
             new BuildingEntry.ModuleProducer<>(
-                    "mekanist_infuser_craft",
+                    "crafting",
                     () -> new BuildingMekanistHut.InfuserCraftingModule(ModJobEntries.MEKANIST.get()),
                     () -> CraftingModuleView::new
             );
