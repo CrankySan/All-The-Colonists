@@ -45,7 +45,6 @@ public final class ModBuildingEntries
                     () -> CraftingModuleView::new
             );
 
-
     /** Request-task tab for crafter jobs – shows crafting tasks/queue. */
     public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_TASKS =
             BuildingModules.CRAFT_TASK_VIEW;
