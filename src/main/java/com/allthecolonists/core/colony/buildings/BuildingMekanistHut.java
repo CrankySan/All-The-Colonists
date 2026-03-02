@@ -44,7 +44,9 @@ public class BuildingMekanistHut extends AbstractBuilding {
         @Override
         public boolean isRecipeCompatible(@NotNull final IGenericRecipe recipe) {
             final var intermediate = recipe.getIntermediate();
-            if (intermediate == null || intermediate == Blocks.AIR) return false;
+            if (intermediate == null || intermediate == Blocks.AIR) {
+                return false;
+            }
             return METALLURGIC_INFUSER_ID.equals(BuiltInRegistries.BLOCK.getKey(intermediate));
         }
 
