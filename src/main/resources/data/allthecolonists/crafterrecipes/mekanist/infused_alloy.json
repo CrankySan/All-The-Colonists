@@ -2,9 +2,19 @@
   "type": "recipe",
   "crafter": "mekanist_crafting",
   "inputs": [
-    { "item": "minecraft:iron_ingot", "count": 8 },
-    { "item": "minecraft:redstone", "count": 1 }
+    {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:copper_ingot"
+    }
   ],
-  "result": { "id": "mekanism:alloy_infused", "count": 8 },
-  "intermediate": "mekanism:metallurgic_infuser"
+  "intermediate": "mekanism:metallurgic_infuser",
+  "min-building-level": 1,
+  "result": {
+    "id": "mekanism:alloy_infused",
+    "count": 1
+  }
 }
