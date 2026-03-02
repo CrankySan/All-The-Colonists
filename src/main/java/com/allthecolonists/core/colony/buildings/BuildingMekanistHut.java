@@ -23,6 +23,9 @@ public class BuildingMekanistHut extends AbstractBuilding {
     /**
      * Crafting module for Mekanism Metallurgic Infuser recipes.
      * Recipes whose intermediate block is the Metallurgic Infuser are accepted.
+     *
+     * Intentionally based on the generic crafting module (not mechanic-specific crafting),
+     * so Mekanism outputs such as infused alloy can be taught/saved in the hut recipe UI.
      */
     public static class InfuserCraftingModule extends BuildingMechanic.CraftingModule {
 
