@@ -1,14 +1,6 @@
-package com.allthecolonists.core.colony.buildings;
-
-import com.minecolonies.api.colony.IColony;
-import com.minecolonies.api.colony.jobs.registry.JobEntry;
-import com.minecolonies.api.crafting.IGenericRecipe;
-import com.minecolonies.core.colony.buildings.AbstractBuilding;
-import com.minecolonies.core.colony.buildings.modules.AbstractCraftingBuildingModule;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.core.registries.BuiltInRegistries;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -35,7 +27,7 @@ public class BuildingMekanistHut extends AbstractBuilding {
      * Intentionally based on the generic crafting module (not mechanic-specific crafting),
      * so Mekanism outputs such as infused alloy can be taught/saved in the hut recipe UI.
      */
-    public static class InfuserCraftingModule extends AbstractCraftingBuildingModule.Crafting {
+    public static class InfuserCraftingModule extends BuildingMechanic.CraftingModule {
 
         private static final ResourceLocation METALLURGIC_INFUSER_ID =
                 ResourceLocation.fromNamespaceAndPath("mekanism", "metallurgic_infuser");
@@ -46,17 +38,18 @@ public class BuildingMekanistHut extends AbstractBuilding {
 
         @Override
         public boolean isRecipeCompatible(@NotNull final IGenericRecipe recipe) {
+            if (!super.isRecipeCompatible(recipe)) {
+                return false;
+            }
+
             final var intermediate = recipe.getIntermediate();
             if (intermediate == null || intermediate == Blocks.AIR) {
                 return false;
             }
-            return METALLURGIC_INFUSER_ID.equals(BuiltInRegistries.BLOCK.getKey(intermediate));
-        }
 
-        @NotNull
-        @Override
-        public String getId() {
-            return "crafting";
+            return METALLURGIC_INFUSER_ID.equals(
+                    BuiltInRegistries.BLOCK.getKey(intermediate)
+            );
         }
     }
 }
