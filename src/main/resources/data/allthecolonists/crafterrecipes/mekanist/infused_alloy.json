@@ -5,7 +5,6 @@
     { "item": "minecraft:iron_ingot", "count": 8 },
     { "item": "minecraft:redstone", "count": 1 }
   ],
-  "result": "mekanism:alloy_infused",
-  "count": 8,
-  "intermediate": "minecraft:air"
+  "result": { "id": "mekanism:alloy_infused", "count": 8 },
+  "intermediate": "mekanism:metallurgic_infuser"
 }
