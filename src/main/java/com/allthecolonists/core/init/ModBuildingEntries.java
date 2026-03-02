@@ -4,11 +4,10 @@ import com.allthecolonists.core.AllTheColonists;
 import com.allthecolonists.core.colony.buildings.BuildingMekanistHut;
 import com.allthecolonists.core.colony.buildings.views.BuildingMekanismHutView;
 import com.allthecolonists.core.registry.ModBlocks;
-import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
-import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.entity.citizen.Skill;
-import com.minecolonies.core.colony.buildings.modules.WorkerBuildingModule;
+import com.minecolonies.core.colony.buildings.modules.BuildingModules;
+import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModule;
 import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import net.minecraft.resources.ResourceLocation;
@@ -24,10 +23,10 @@ public final class ModBuildingEntries
             );
 
     /** Worker-assignment module – provides "Manage Workers" and "Recall Worker" buttons. */
-    public static final BuildingEntry.ModuleProducer<WorkerBuildingModule, WorkerBuildingModuleView> MEKANIST_WORK =
+    public static final BuildingEntry.ModuleProducer<CraftingWorkerBuildingModule, WorkerBuildingModuleView> MEKANIST_WORK =
             new BuildingEntry.ModuleProducer<>(
                     "worker",
-                    () -> new WorkerBuildingModule(
+                    () -> new CraftingWorkerBuildingModule(
                             ModJobEntries.MEKANIST.get(),
                             Skill.Knowledge,
                             Skill.Agility,
@@ -54,6 +53,9 @@ public final class ModBuildingEntries
                             .setRegistryName(ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut"))
                             .addBuildingModuleProducer(MEKANIST_WORK)
                             .addBuildingModuleProducer(MEKANIST_INFUSER_CRAFT)
+                            .addBuildingModuleProducer(BuildingModules.CRAFT_TASK_VIEW)
+                            .addBuildingModuleProducer(BuildingModules.SETTINGS_CRAFTER_RECIPE)
+                            .addBuildingModuleProducer(BuildingModules.STATS_MODULE)
                             .createBuildingEntry()
             );
 
