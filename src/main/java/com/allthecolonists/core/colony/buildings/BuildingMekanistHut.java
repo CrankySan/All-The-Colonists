@@ -1,14 +1,6 @@
-package com.allthecolonists.core.colony.buildings;
-
-import com.minecolonies.api.colony.IColony;
-import com.minecolonies.api.colony.jobs.registry.JobEntry;
-import com.minecolonies.api.crafting.IGenericRecipe;
-import com.minecolonies.core.colony.buildings.AbstractBuilding;
-import com.minecolonies.core.colony.buildings.workerbuildings.BuildingMechanic;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.core.registries.BuiltInRegistries;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -52,7 +44,9 @@ public class BuildingMekanistHut extends AbstractBuilding {
                 return false;
             }
 
-            return METALLURGIC_INFUSER_ID.equals(BuiltInRegistries.BLOCK.getKey(intermediate));
+            return METALLURGIC_INFUSER_ID.equals(
+                    BuiltInRegistries.BLOCK.getKey(intermediate)
+            );
         }
     }
 }
