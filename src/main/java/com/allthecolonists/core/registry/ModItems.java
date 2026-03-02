@@ -2,9 +2,7 @@ package com.allthecolonists.core.registry;
 
 import com.allthecolonists.core.AllTheColonists;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -16,9 +14,9 @@ public final class ModItems {
     // -------- HUT ITEM (MEKANIST) --------
     public static final DeferredHolder<Item, Item> MEKANIST_HUT_ITEM =
             ITEMS.register(
-                    "mekanist_hut",
+                    "mekanism_hut",
                     () -> new BlockItem(
-                            ModBlocks.MEKANIST_HUT.get(),
+                            ModBlocks.MEKANISM_HUT.get(),
                             new Item.Properties()
                     )
             );
@@ -31,9 +29,5 @@ public final class ModItems {
             );
 
     private ModItems() {
-    }
-
-    public static void register(final IEventBus bus) {
-        ITEMS.register(bus);
     }
 }

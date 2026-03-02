@@ -1,10 +1,13 @@
 package com.allthecolonists.core.init;
 
 import com.allthecolonists.core.AllTheColonists;
+import com.allthecolonists.core.colony.buildings.BuildingMekanistHut;
+import com.allthecolonists.core.colony.buildings.views.BuildingMekanismHutView;
+import com.allthecolonists.core.registry.ModBlocks;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class ModBuildingEntries
 {
@@ -14,16 +17,16 @@ public final class ModBuildingEntries
                     AllTheColonists.MODID
             );
 
-    public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANIST_HUT =
+    public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
             BUILDINGS.register(
-                    "mekanist_hut",
-                    BuildingEntry::new
+                    "mekanism_hut",
+                    () -> new BuildingEntry.Builder()
+                            .setBuildingBlock(ModBlocks.MEKANISM_HUT.get())
+                            .setBuildingProducer(BuildingMekanistHut::new)
+                            .setBuildingViewProducer(() -> BuildingMekanismHutView::new)
+                            .setRegistryName(ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut"))
+                            .createBuildingEntry()
             );
 
     private ModBuildingEntries() {}
-
-    public static void register(IEventBus bus)
-    {
-        BUILDINGS.register(bus);
-    }
 }

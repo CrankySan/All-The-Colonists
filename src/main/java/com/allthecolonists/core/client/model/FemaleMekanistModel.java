@@ -45,6 +45,18 @@ public class FemaleMekanistModel extends CitizenModel<AbstractEntityCitizen>
                 PartPose.offset(0.0F, -2.6F, 0.0F)
         );
 
+        PartDefinition glassesOn = bipedHead.addOrReplaceChild(
+                "glassesOn",
+                CubeListBuilder.create()
+                        .texOffs(98, 6).addBox(-4.0F, -4.0F, -4.01F, 1.0F, 1.0F, 0.0F, new CubeDeformation(0.05F))
+                        .texOffs(108, 6).addBox(3.0F, -4.0F, -4.01F, 1.0F, 1.0F, 0.0F, new CubeDeformation(0.05F))
+                        .texOffs(104, 0).addBox(4.01F, -4.0F, -4.0F, 0.0F, 1.0F, 8.0F, new CubeDeformation(0.05F))
+                        .texOffs(88, 0).addBox(-4.01F, -4.0F, -4.0F, 0.0F, 1.0F, 8.0F, new CubeDeformation(0.05F))
+                        .texOffs(96, 9).addBox(-4.0F, -4.0F, 4.01F, 8.0F, 1.0F, 0.0F, new CubeDeformation(0.05F))
+                        .texOffs(101, 2).addBox(-1.0F, -4.1F, -4.8F, 2.0F, 1.0F, 1.0F, new CubeDeformation(-0.21F)),
+                PartPose.offset(0.0F, -0.2F, 0.0F)
+        );
+
         // Restliches Modell unverändert (Kristalle, Haare, Körper, Arme, Beine etc.)
 
         return LayerDefinition.create(meshdefinition, 128, 64);
@@ -60,7 +72,7 @@ public class FemaleMekanistModel extends CitizenModel<AbstractEntityCitizen>
     {
         super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         final boolean working = isWorking(entity);
-        head.getChild("glasses").visible = working;
+        head.getChild("glassesOn").visible = working;
         head.getChild("glassesOff").visible = !working;
     }
 }

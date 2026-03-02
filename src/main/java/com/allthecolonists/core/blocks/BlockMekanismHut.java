@@ -3,7 +3,7 @@ package com.allthecolonists.core.blocks;
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-public class BlockMekanismHut extends AbstractBlockHut {
+public class BlockMekanismHut extends AbstractBlockHut<BlockMekanismHut> {
 
     public BlockMekanismHut(BlockBehaviour.Properties properties) {
         super(properties);

@@ -1,11 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "tick": { "trigger": "minecraft:tick" }
+    "has_redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["minecraft:redstone"] }]
+      }
+    }
   },
   "rewards": {
     "recipes": [
-      "allthecolonists:mekanism_hut"
+      "allthecolonists:mekanism_hut_block"
     ]
   }
 }
