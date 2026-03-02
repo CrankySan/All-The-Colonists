@@ -8,7 +8,8 @@ import com.minecolonies.api.colony.buildings.modules.IBuildingModule;
 import com.minecolonies.api.colony.buildings.modules.IBuildingModuleView;
 import com.minecolonies.api.colony.buildings.registry.BuildingEntry;
 import com.minecolonies.api.entity.citizen.Skill;
-import com.minecolonies.core.colony.buildings.modules.WorkerBuildingModule;
+import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModule;
+import com.minecolonies.core.colony.buildings.modules.BuildingModules;
 import com.minecolonies.core.colony.buildings.moduleviews.CraftingModuleView;
 import com.minecolonies.core.colony.buildings.moduleviews.WorkerBuildingModuleView;
 import net.minecraft.resources.ResourceLocation;
@@ -24,10 +25,10 @@ public final class ModBuildingEntries
             );
 
     /** Worker-assignment module – provides "Manage Workers" and "Recall Worker" buttons. */
-    public static final BuildingEntry.ModuleProducer<WorkerBuildingModule, WorkerBuildingModuleView> MEKANIST_WORK =
+    public static final BuildingEntry.ModuleProducer<CraftingWorkerBuildingModule, WorkerBuildingModuleView> MEKANIST_WORK =
             new BuildingEntry.ModuleProducer<>(
                     "worker",
-                    () -> new WorkerBuildingModule(
+                    () -> new CraftingWorkerBuildingModule(
                             ModJobEntries.MEKANIST.get(),
                             Skill.Knowledge,
                             Skill.Agility,
@@ -44,6 +45,12 @@ public final class ModBuildingEntries
                     () -> CraftingModuleView::new
             );
 
+
+
+    /** Request-task tab for crafter jobs – shows crafting tasks/queue. */
+    public static final BuildingEntry.ModuleProducer<IBuildingModule, IBuildingModuleView> MEKANIST_TASKS =
+            BuildingModules.CRAFT_TASK_VIEW;
+
     public static final DeferredHolder<BuildingEntry, BuildingEntry> MEKANISM_HUT =
             BUILDINGS.register(
                     "mekanism_hut",
@@ -54,6 +61,7 @@ public final class ModBuildingEntries
                             .setRegistryName(ResourceLocation.fromNamespaceAndPath(AllTheColonists.MODID, "mekanism_hut"))
                             .addBuildingModuleProducer(MEKANIST_WORK)
                             .addBuildingModuleProducer(MEKANIST_INFUSER_CRAFT)
+                            .addBuildingModuleProducer(MEKANIST_TASKS)
                             .createBuildingEntry()
             );
 
