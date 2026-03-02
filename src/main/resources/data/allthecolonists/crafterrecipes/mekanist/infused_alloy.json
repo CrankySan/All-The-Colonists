@@ -1,6 +1,6 @@
 {
   "type": "recipe",
-  "crafter": "mekanist_crafting",
+  "crafter": "crafting",
   "inputs": [
     { "item": "minecraft:iron_ingot", "count": 8 },
     { "item": "minecraft:redstone", "count": 1 }
