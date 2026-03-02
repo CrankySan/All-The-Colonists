@@ -1,6 +1,5 @@
 package com.allthecolonists.core.client;
 
-import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -26,8 +25,6 @@ public class AllTheColonistsClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        // Some client setup code
-        AllTheColonists.LOGGER.info("HELLO FROM CLIENT SETUP");
-        AllTheColonists.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        AllTheColonists.LOGGER.debug("AllTheColonists client setup complete");
     }
 }

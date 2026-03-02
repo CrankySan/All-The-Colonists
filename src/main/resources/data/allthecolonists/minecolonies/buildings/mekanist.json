@@ -2,6 +2,6 @@
   "name": "mekanist",
   "style": "void",
   "type": "craftsmanship",
-  "buildingClass": "com.minecolonies.core.colony.buildings.workerbuildings.BuildingMechanic",
+  "buildingClass": "com.allthecolonists.core.colony.buildings.BuildingMekanistHut",
   "maxLevel": 5
 }

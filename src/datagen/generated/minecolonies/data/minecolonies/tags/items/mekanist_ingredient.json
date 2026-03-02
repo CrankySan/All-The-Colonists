@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#forge:dusts/redstone",
+    "#forge:ores/redstone",
+    "#forge:storage_blocks/redstone",
+    "#minecolonies:storage_blocks",
+    "minecraft:redstone",
+    "minecraft:copper_ingot",
+    "mekansim:osmium_ingot",
+    "minecraft:obsidian",
+    "minecraft:diamond",
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "mekanism_hut",
+  "branch": "technology",
+  "costs": {
+    "research": 1
+  },
+  "effects": []
+}
