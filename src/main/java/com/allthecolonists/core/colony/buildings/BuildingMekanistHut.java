@@ -3,18 +3,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * Mekanist hut building – MineColonies 1.21.x compliant.
- */
 public class BuildingMekanistHut extends AbstractBuilding {
 
     public BuildingMekanistHut(final IColony colony, final BlockPos location) {
         super(colony, location);
     }
 
-    /**
-     * Must match the schematic folder name.
-     */
     @Override
     public String getSchematicName() {
         return "mekanist_hut";
@@ -22,10 +16,7 @@ public class BuildingMekanistHut extends AbstractBuilding {
 
     /**
      * Crafting module for Mekanism Metallurgic Infuser recipes.
-     * Recipes whose intermediate block is the Metallurgic Infuser are accepted.
-     *
-     * Intentionally based on the generic crafting module (not mechanic-specific crafting),
-     * so Mekanism outputs such as infused alloy can be taught/saved in the hut recipe UI.
+     * Only recipes whose intermediate block is the Metallurgic Infuser are accepted.
      */
     public static class InfuserCraftingModule extends BuildingMechanic.CraftingModule {
 
